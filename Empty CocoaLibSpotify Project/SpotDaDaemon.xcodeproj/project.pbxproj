@@ -13,6 +13,7 @@
 		50EECAF015CAA82C006E54FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 50EECAEE15CAA82C006E54FA /* Credits.rtf */; };
 		50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EECAF215CAA82C006E54FA /* AppDelegate.m */; };
 		50EECAF615CAA82C006E54FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EECAF415CAA82C006E54FA /* MainMenu.xib */; };
+		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85EE1B5E197E6A8400EA5E7E /* CocoaLibSpotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE1B5A197E6A4300EA5E7E /* CocoaLibSpotify.framework */; };
 		85EE1B5F197E6AA200EA5E7E /* CocoaLibSpotify.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE1B5A197E6A4300EA5E7E /* CocoaLibSpotify.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,8 @@
 		50EECAF115CAA82C006E54FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50EECAF215CAA82C006E54FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50EECAF515CAA82C006E54FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
+		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85EE1B54197E6A4300EA5E7E /* CocoaLibSpotify Mac Framework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CocoaLibSpotify Mac Framework.xcodeproj"; path = "../CocoaLibSpotify/CocoaLibSpotify Mac Framework.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +131,8 @@
 				50EECAF115CAA82C006E54FA /* AppDelegate.h */,
 				50EECAF215CAA82C006E54FA /* AppDelegate.m */,
 				50EECAF415CAA82C006E54FA /* MainMenu.xib */,
+				85E25DF3197E76D80013FF67 /* SDCommandServer.h */,
+				85E25DF4197E76D80013FF67 /* SDCommandServer.m */,
 				50EECAE615CAA82C006E54FA /* Supporting Files */,
 			);
 			path = "Empty CocoaLibSpotify Project";
@@ -243,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */,
 				50EECAEC15CAA82C006E54FA /* main.m in Sources */,
 				50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */,
 			);

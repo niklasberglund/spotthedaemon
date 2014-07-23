@@ -14,6 +14,9 @@
 		50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EECAF215CAA82C006E54FA /* AppDelegate.m */; };
 		50EECAF615CAA82C006E54FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EECAF415CAA82C006E54FA /* MainMenu.xib */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
+		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
+		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
+		85E25DFF197F91F70013FF67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E25DFE197F91F70013FF67 /* Security.framework */; };
 		85EE1B5E197E6A8400EA5E7E /* CocoaLibSpotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE1B5A197E6A4300EA5E7E /* CocoaLibSpotify.framework */; };
 		85EE1B5F197E6AA200EA5E7E /* CocoaLibSpotify.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 85EE1B5A197E6A4300EA5E7E /* CocoaLibSpotify.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,11 @@
 		50EECAF515CAA82C006E54FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
+		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		85E25DFA197E77630013FF67 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		85E25DFE197F91F70013FF67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		85EE1B54197E6A4300EA5E7E /* CocoaLibSpotify Mac Framework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CocoaLibSpotify Mac Framework.xcodeproj"; path = "../CocoaLibSpotify/CocoaLibSpotify Mac Framework.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E25DFF197F91F70013FF67 /* Security.framework in Frameworks */,
 				85EE1B5E197E6A8400EA5E7E /* CocoaLibSpotify.framework in Frameworks */,
 				50EECAE015CAA82C006E54FA /* Cocoa.framework in Frameworks */,
 			);
@@ -109,6 +118,7 @@
 		50EECADE15CAA82C006E54FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85E25DFE197F91F70013FF67 /* Security.framework */,
 				50EECADF15CAA82C006E54FA /* Cocoa.framework */,
 				50EECAE115CAA82C006E54FA /* Other Frameworks */,
 			);
@@ -133,6 +143,7 @@
 				50EECAF415CAA82C006E54FA /* MainMenu.xib */,
 				85E25DF3197E76D80013FF67 /* SDCommandServer.h */,
 				85E25DF4197E76D80013FF67 /* SDCommandServer.m */,
+				85E25DF6197E773D0013FF67 /* lib */,
 				50EECAE615CAA82C006E54FA /* Supporting Files */,
 			);
 			path = "Empty CocoaLibSpotify Project";
@@ -148,6 +159,25 @@
 				50EECAEE15CAA82C006E54FA /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85E25DF6197E773D0013FF67 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				85E25DF7197E77560013FF67 /* GCDAsyncSocket */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		85E25DF7197E77560013FF67 /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */,
+				85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */,
+				85E25DFA197E77630013FF67 /* GCDAsyncUdpSocket.h */,
+				85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */,
+			);
+			name = GCDAsyncSocket;
 			sourceTree = "<group>";
 		};
 		85EE1B55197E6A4300EA5E7E /* Products */ = {
@@ -248,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */,
+				85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */,
 				85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */,
 				50EECAEC15CAA82C006E54FA /* main.m in Sources */,
 				50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */,

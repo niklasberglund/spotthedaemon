@@ -13,10 +13,17 @@
 
 - (id)init
 {
+    return [self initWithPort:[NSNumber numberWithInt:1234]];
+}
+
+
+- (id)initWithPort:(NSNumber *)port
+{
     self = [super init];
     
     if (self) {
         self->activeSockets = [NSMutableArray array];
+        self.port = port;
     }
     
     return self;
@@ -37,7 +44,7 @@
         NSLog(@"error");
     }
     
-    NSLog(@"listening on port %i", LISTEN_PORT);
+    NSLog(@"listening on port %@", self.port);
     NSLog(@"%@", startListenError);
 }
 
@@ -78,7 +85,7 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
 {
-    NSLog(@"read partial data of length %i", partialLength);
+    NSLog(@"read partial data of length %lu", (unsigned long)partialLength);
 }
 
 

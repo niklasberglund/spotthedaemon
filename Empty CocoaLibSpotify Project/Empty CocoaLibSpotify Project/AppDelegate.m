@@ -37,6 +37,7 @@
 
 #import "AppDelegate.h"
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
+#import "SDCommandServer.h"
 
 #define SP_LIBSPOTIFY_DEBUG_LOGGING 0
 
@@ -60,6 +61,8 @@
 	}
 
 	[[SPSession sharedSession] setDelegate:self];
+    
+    [[SDCommandServer alloc] init];
 	
 }
 

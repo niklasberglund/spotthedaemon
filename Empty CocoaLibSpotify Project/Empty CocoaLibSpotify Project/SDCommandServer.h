@@ -16,6 +16,9 @@
     dispatch_queue_t socketQueue;
 }
 
+@property (nonatomic, strong) NSNumber *port;
+
+- (id)initWithPort:(NSNumber *)port;
 - (void)start;
 
 @end

@@ -52,7 +52,7 @@
 - (void)socket:(GCDAsyncSocket *)sender didAcceptNewSocket:(GCDAsyncSocket *)newSocket
 {
     NSLog(@"accepting socket");
-    NSMutableDictionary *socketDict = [NSMutableDictionary dictionaryWithObjects:@[newSocket, [NSData data]] forKeys:@[@"socket", @"data"]];
+    NSMutableDictionary *socketDict = [NSMutableDictionary dictionaryWithObjects:@[newSocket, [NSMutableData data]] forKeys:@[@"socket", @"data"]];
     [self->activeSockets addObject:socketDict];
     NSLog(@"accepted socket %@", newSocket);
     

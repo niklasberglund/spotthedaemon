@@ -102,6 +102,9 @@
                 socketData = [[NSMutableData alloc] init];
                 [socketDict setValue:socketData forKey:@"data"];
             }
+            else {
+                [socketData appendData:data];
+            }
         }
     }
     

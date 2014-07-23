@@ -62,7 +62,8 @@
 
 	[[SPSession sharedSession] setDelegate:self];
     
-    [[SDCommandServer alloc] init];
+    self->commandServer = [[SDCommandServer alloc] init];
+    [self->commandServer start];
 	
 }
 

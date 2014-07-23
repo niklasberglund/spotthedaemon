@@ -13,7 +13,7 @@
 
 - (id)init
 {
-    return [self initWithPort:[NSNumber numberWithInt:1234]];
+    return [self initWithPort:[NSNumber numberWithInt:DEFAULT_PORT]];
 }
 
 
@@ -37,14 +37,14 @@
     
     NSError *startListenError;
     
-    //BOOL startSuccess = [self->listenSocket acceptOnInterface:@"en0" port:LISTEN_PORT error:&startListenError];
-    BOOL startSuccess = [self->listenSocket acceptOnPort:4030 error:&startListenError];
+    //BOOL startSuccess = [self->listenSocket acceptOnInterface:@"loopback" port:[self.port intValue] error:&startListenError];
+    BOOL startSuccess = [self->listenSocket acceptOnPort:[self.port intValue] error:&startListenError];
     
     if (!startSuccess) {
         NSLog(@"error");
     }
     
-    NSLog(@"listening on port %@", self.port);
+    NSLog(@"listening on port %i", [self.port intValue]);
     NSLog(@"%@", startListenError);
 }
 
@@ -111,12 +111,14 @@
         return;
     }
     
+    NSLog(@"%@", self->activeSockets);
+    
     NSString *dataString = [[NSString alloc] initWithData:socketData encoding:NSUTF8StringEncoding];
     
     NSLog(@"socket data:");
     NSLog(@"%@", dataString);
     
-    //[sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
 }
 
 

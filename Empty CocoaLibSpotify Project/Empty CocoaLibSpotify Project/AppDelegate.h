@@ -32,8 +32,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
+#import "SDCommandServer.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, SPSessionDelegate>
+{
+    SDCommandServer *commandServer;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 

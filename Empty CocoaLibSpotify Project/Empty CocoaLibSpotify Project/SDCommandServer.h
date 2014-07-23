@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "GCDAsyncSocket.h"
 
+
+#define DEFAULT_PORT 4030
+
+
 @interface SDCommandServer : NSObject<GCDAsyncSocketDelegate>
 {
     GCDAsyncSocket *listenSocket;

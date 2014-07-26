@@ -11,6 +11,8 @@
 
 
 #define DEFAULT_PORT 4030
+static const char COMMAND_START_BYTE = '$';
+static const char COMMAND_END_BYTE = '#';
 
 
 @interface SDCommandServer : NSObject<GCDAsyncSocketDelegate>

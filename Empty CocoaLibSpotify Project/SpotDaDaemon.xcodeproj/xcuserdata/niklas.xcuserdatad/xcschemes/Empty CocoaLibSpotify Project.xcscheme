@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "50EECADA15CAA82C006E54FA"
-               BuildableName = "Empty CocoaLibSpotify Project.app"
+               BuildableName = "SpotDaDaemon.app"
                BlueprintName = "SpotDaDaemon"
                ReferencedContainer = "container:SpotDaDaemon.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EECADA15CAA82C006E54FA"
-            BuildableName = "Empty CocoaLibSpotify Project.app"
+            BuildableName = "SpotDaDaemon.app"
             BlueprintName = "SpotDaDaemon"
             ReferencedContainer = "container:SpotDaDaemon.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EECADA15CAA82C006E54FA"
-            BuildableName = "Empty CocoaLibSpotify Project.app"
+            BuildableName = "SpotDaDaemon.app"
             BlueprintName = "SpotDaDaemon"
             ReferencedContainer = "container:SpotDaDaemon.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "50EECADA15CAA82C006E54FA"
-            BuildableName = "Empty CocoaLibSpotify Project.app"
+            BuildableName = "SpotDaDaemon.app"
             BlueprintName = "SpotDaDaemon"
             ReferencedContainer = "container:SpotDaDaemon.xcodeproj">
          </BuildableReference>

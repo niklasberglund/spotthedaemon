@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E2CE3F3-AD90-4209-9233-A4D4DCE92B86</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SpotDaDaemon</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6F5EF150-732F-4806-A49B-53FD706331BB</key>
+		<string>https://github.com/klurig/spotdadaemon.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Empty CocoaLibSpotify Project/SpotDaDaemon.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6F5EF150-732F-4806-A49B-53FD706331BB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/klurig/spotdadaemon.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6F5EF150-732F-4806-A49B-53FD706331BB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F5EF150-732F-4806-A49B-53FD706331BB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spotdadaemon</string>
+		</dict>
+	</array>
+</dict>
+</plist>

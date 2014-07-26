@@ -114,14 +114,41 @@
         return;
     }
     
-    NSLog(@"%@", self->activeSockets);
-    
     NSString *dataString = [[NSString alloc] initWithData:socketData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"socket data:");
-    NSLog(@"%@", dataString);
+    
+    NSArray *commands = [self extractCommandsFromString:dataString];
+    NSLog(@"extracted commands:");
+    NSLog(@"%@", commands);
     
     [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
+}
+
+
+- (NSArray *)extractCommandsFromString:(NSString *)dataString
+{
+    if ([dataString rangeOfString:[NSString stringWithFormat:@"%c", COMMAND_START_BYTE]].location != NSNotFound) {
+        NSMutableArray *separatedCommands = [[NSMutableArray alloc] init];
+        
+        NSArray *separatedByStartByte = [dataString componentsSeparatedByString:[NSString stringWithFormat:@"%c", COMMAND_START_BYTE]];
+        
+        for (NSString *separatedString in separatedByStartByte) {
+            int endByteIndex = (int)[separatedString rangeOfString:[NSString stringWithFormat:@"%c", COMMAND_END_BYTE]].location;
+            
+            if (endByteIndex == -1) { // not a command
+                continue;
+            }
+            
+            NSString *commandString = [separatedString substringToIndex:endByteIndex];
+            
+            [separatedCommands addObject:commandString];
+        }
+        
+        return separatedCommands;
+    }
+    else {
+        return @[];
+    }
 }
 
 

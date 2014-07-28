@@ -15,10 +15,27 @@
     self = [super init];
     
     if (self) {
-        
+        [self populateFromString:commandString];
     }
     
     return self;
+}
+
+
++ (id)commandFromString:(NSString *)commandString
+{
+    return [[self alloc] initCommandFromString:commandString];
+}
+
+
+- (void)populateFromString:(NSString *)commandString
+{
+    NSArray *components = [commandString componentsSeparatedByString:(NSString *)COMMAND_SEPARATOR_CHARACTER];
+    
+    NSLog(@"%@", components);
+    
+    NSDictionary *dict = [[NSDictionary alloc] init];
+    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
 }
 
 @end

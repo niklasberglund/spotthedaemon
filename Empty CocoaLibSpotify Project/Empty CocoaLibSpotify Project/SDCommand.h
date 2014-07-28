@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+jsonString.h"
+
+static const NSString *COMMAND_SEPARATOR_CHARACTER = @"|";
 
 @interface SDCommand : NSObject
 
@@ -14,5 +17,6 @@
 @property (nonatomic, strong) NSArray *arguments;
 
 - (id)initCommandFromString:(NSString *)commandString;
++ (id)commandFromString:(NSString *)commandString;
 
 @end

@@ -140,8 +140,7 @@
             }
             
             NSString *commandString = [separatedString substringToIndex:endByteIndex];
-            
-            [separatedCommands addObject:commandString];
+            [separatedCommands addObject:[SDCommand commandFromString:commandString]];
         }
         
         return separatedCommands;

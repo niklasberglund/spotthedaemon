@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GCDAsyncSocket.h"
+#import "SDCommand.h"
 
 
 #define DEFAULT_PORT 4030

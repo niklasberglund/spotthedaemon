@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "GCDAsyncSocket.h"
 #import "SDCommand.h"
+#import "SDCommandExecuter.h"
+#import "SDCommandExecuterDelegate.h"
 
 
 #define DEFAULT_PORT 4030
@@ -16,11 +18,13 @@ static const char COMMAND_START_BYTE = '$';
 static const char COMMAND_END_BYTE = '#';
 
 
-@interface SDCommandServer : NSObject<GCDAsyncSocketDelegate>
+@interface SDCommandServer : NSObject<GCDAsyncSocketDelegate, SDCommandExecuterDelegate>
 {
     GCDAsyncSocket *listenSocket;
     NSMutableArray *activeSockets;
     dispatch_queue_t socketQueue;
+    
+    SDCommandExecuter *commandExecuter;
 }
 
 @property (nonatomic, strong) NSNumber *port;

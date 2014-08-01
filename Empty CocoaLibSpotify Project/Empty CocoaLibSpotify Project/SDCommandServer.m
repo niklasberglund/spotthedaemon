@@ -24,6 +24,8 @@
     if (self) {
         self->activeSockets = [NSMutableArray array];
         self.port = port;
+        
+        self->commandExecuter = [SDCommandExecuter commandExecuterWithDelegate:self];
     }
     
     return self;
@@ -118,8 +120,10 @@
     
     
     NSArray *commands = [self extractCommandsFromString:dataString];
-    NSLog(@"extracted commands:");
-    NSLog(@"%@", commands);
+    
+    for (SDCommand *extractedCommand in commands) {
+        [self->commandExecuter executeCommand:extractedCommand];
+    }
     
     [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
 }
@@ -148,6 +152,12 @@
     else {
         return @[];
     }
+}
+
+
+- (void)finishedExecutingCommand:(SDCommand *)withResponse :(NSString *)responseString
+{
+
 }
 
 

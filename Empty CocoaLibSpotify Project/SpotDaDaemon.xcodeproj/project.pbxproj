@@ -13,6 +13,7 @@
 		50EECAF015CAA82C006E54FA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 50EECAEE15CAA82C006E54FA /* Credits.rtf */; };
 		50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EECAF215CAA82C006E54FA /* AppDelegate.m */; };
 		50EECAF615CAA82C006E54FA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EECAF415CAA82C006E54FA /* MainMenu.xib */; };
+		8508F5191986BD2D00D67F65 /* SDCommandExecuter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8508F5181986BD2D00D67F65 /* SDCommandExecuter.m */; };
 		854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
@@ -75,6 +76,9 @@
 		50EECAF115CAA82C006E54FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50EECAF215CAA82C006E54FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50EECAF515CAA82C006E54FA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8508F5171986BD2D00D67F65 /* SDCommandExecuter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandExecuter.h; sourceTree = "<group>"; };
+		8508F5181986BD2D00D67F65 /* SDCommandExecuter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandExecuter.m; sourceTree = "<group>"; };
+		8508F51B19877B9900D67F65 /* SDCommandExecuterDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDCommandExecuterDelegate.h; sourceTree = "<group>"; };
 		854FF4E91984FACD008CAD25 /* NSDictionary+jsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+jsonString.h"; sourceTree = "<group>"; };
 		854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+jsonString.m"; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
@@ -154,6 +158,9 @@
 				85E25E02197FE93B0013FF67 /* SDCommand.m */,
 				85E25DF6197E773D0013FF67 /* lib */,
 				50EECAE615CAA82C006E54FA /* Supporting Files */,
+				8508F5171986BD2D00D67F65 /* SDCommandExecuter.h */,
+				8508F5181986BD2D00D67F65 /* SDCommandExecuter.m */,
+				8508F51B19877B9900D67F65 /* SDCommandExecuterDelegate.h */,
 			);
 			path = "Empty CocoaLibSpotify Project";
 			sourceTree = "<group>";
@@ -297,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */,
+				8508F5191986BD2D00D67F65 /* SDCommandExecuter.m in Sources */,
 				85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */,
 				854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */,
 				85E25E03197FE93B0013FF67 /* SDCommand.m in Sources */,

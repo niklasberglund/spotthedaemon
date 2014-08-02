@@ -131,13 +131,13 @@
 
 - (NSArray *)extractCommandsFromString:(NSString *)dataString
 {
-    if ([dataString rangeOfString:[NSString stringWithFormat:@"%c", COMMAND_START_BYTE]].location != NSNotFound) {
+    if ([dataString rangeOfString:[SDCommand startSeparator]].location != NSNotFound) {
         NSMutableArray *separatedCommands = [[NSMutableArray alloc] init];
         
-        NSArray *separatedByStartByte = [dataString componentsSeparatedByString:[NSString stringWithFormat:@"%c", COMMAND_START_BYTE]];
+        NSArray *separatedByStartByte = [dataString componentsSeparatedByString:[SDCommand startSeparator]];
         
         for (NSString *separatedString in separatedByStartByte) {
-            int endByteIndex = (int)[separatedString rangeOfString:[NSString stringWithFormat:@"%c", COMMAND_END_BYTE]].location;
+            int endByteIndex = (int)[separatedString rangeOfString:[SDCommand endSeparator]].location;
             
             if (endByteIndex == -1) { // not a command
                 continue;

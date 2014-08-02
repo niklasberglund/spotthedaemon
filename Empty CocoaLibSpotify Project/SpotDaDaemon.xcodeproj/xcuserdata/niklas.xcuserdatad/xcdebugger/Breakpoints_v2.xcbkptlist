@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Empty CocoaLibSpotify Project/SDCommandServer.m"
-            timestampString = "428576201.685461"
+            timestampString = "428578047.294106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "-extractCommandsFromString:"
             landmarkType = "5">
          </BreakpointContent>

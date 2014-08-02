@@ -30,7 +30,7 @@
 
 - (void)populateFromString:(NSString *)commandString
 {
-    NSArray *components = [commandString componentsSeparatedByString:(NSString *)COMMAND_SEPARATOR_CHARACTER];
+    NSArray *components = [commandString componentsSeparatedByString:[SDCommand argumentSeparator]];
     
     NSLog(@"%@", components);
     
@@ -38,4 +38,28 @@
     NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
 }
 
++ (NSString *)startSeparator
+{
+    return @"$";
+}
+
+
++ (NSString *)endSeparator
+{
+    return @"#";
+}
+
+
++ (NSString *)identifierSeparator
+{
+    return @"§";
+}
+
+
++ (NSString *)argumentSeparator
+{
+    return @"|";
+}
+
 @end
+

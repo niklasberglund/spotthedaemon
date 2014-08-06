@@ -6,14 +6,22 @@ readonly CLITIFY_HOST="127.0.0.1"
 readonly CLITIFY_PORT="4030"
 
 readonly CLITIFY_NAME="CLItify-bash"
-readonly CLITIFY_EXECUTABLE_NAME="clitify.sh"
+readonly CLITIFY_EXECUTABLE_NAME=$(basename $0)
 
 readonly PACKET_START="\$"
 readonly PACKET_END="#"
 readonly PACKET_IDENTIFIER_SEPARATOR="§"
 readonly PACKET_ARGUMENT_SEPARATOR="|"
 
-packet_id=0
+readonly CLITIFY_PACKET_ID_FILE_PATH="/tmp/clitify_packet_id"
+
+packet_id=$(cat $CLITIFY_PACKET_ID_FILE_PATH)
+
+if [ -z "$packet_id"]
+then
+	packet_id=0
+	$(echo $packet_id > $CLITIFY_PACKET_ID_FILE_PATH)
+fi
 
 usage()
 {	
@@ -34,6 +42,7 @@ usage()
 	   Log on and start playing a song
 	   $CLITIFY_EXECUTABLE_NAME login myusername mypassword
 	   $CLITIFY_EXECUTABLE_NAME play spotify:track:6vyStw2mr0Eq3izsBjJj4R
+	   
 	EOF
 	
 	#echo "  play" 1>&2
@@ -105,9 +114,10 @@ sendcommand()
 	done
 	
 	packet=$packet"$packet_data"$PACKET_END
-	echo $packet | nc -cv $CLITIFY_HOST $CLITIFY_PORT
+	echo $packet #| nc -cv $CLITIFY_HOST $CLITIFY_PORT
 	
 	packet_id=$(($packet_id+1))
+	$(echo $packet_id > $CLITIFY_PACKET_ID_FILE_PATH)
 }
 
 set -e

@@ -117,6 +117,12 @@ sendcommand()
 	echo $packet #| nc -cv $CLITIFY_HOST $CLITIFY_PORT
 	
 	packet_id=$(($packet_id+1))
+	
+	if [ $packet_id -gt 9999 ]
+	then
+		packet_id=0
+	fi
+	
 	$(echo $packet_id > $CLITIFY_PACKET_ID_FILE_PATH)
 }
 

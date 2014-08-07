@@ -60,11 +60,7 @@
 
 -(void)session:(SPSession *)aSession didFailToLoginWithError:(NSError *)error {
 	// Called after a failed login.
-    [NSApp presentError:error
-         modalForWindow:self.window
-               delegate:nil
-     didPresentSelector:nil
-            contextInfo:nil];
+    NSLog(@"ERROR: Login failed with error: %@", error);
 }
 
 -(void)sessionDidLogOut:(SPSession *)aSession; {

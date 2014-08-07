@@ -17,7 +17,7 @@ readonly CLITIFY_PACKET_ID_FILE_PATH="/tmp/clitify_packet_id"
 
 packet_id=$(cat $CLITIFY_PACKET_ID_FILE_PATH)
 
-if [ -z "$packet_id"]
+if [ -z "$packet_id" ]
 then
 	packet_id=0
 	$(echo $packet_id > $CLITIFY_PACKET_ID_FILE_PATH)

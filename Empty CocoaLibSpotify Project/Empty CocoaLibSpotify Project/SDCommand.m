@@ -30,7 +30,27 @@
 
 - (void)populateFromString:(NSString *)commandString
 {
-    NSArray *components = [commandString componentsSeparatedByString:[SDCommand argumentSeparator]];
+    NSString *commandArgumentsString; // command and arguments
+    
+    if ([commandString rangeOfString:[SDCommand identifierSeparator]].location != NSNotFound) {
+        NSArray *separatedByIdentfierSeparator = [commandString componentsSeparatedByString:[SDCommand identifierSeparator]];
+        self.identifier = [[separatedByIdentfierSeparator objectAtIndex:0] intValue];
+        
+        commandArgumentsString = [separatedByIdentfierSeparator objectAtIndex:1];
+    }
+    else { // no identifier specified
+        commandArgumentsString = commandString;
+    }
+    
+    NSArray *components = [commandArgumentsString componentsSeparatedByString:[SDCommand argumentSeparator]];
+    
+    self.command = [components firstObject];
+    
+    if (components.count > 1) { // arguments, if there are any
+        NSMutableArray *mutableCompontents = [components mutableCopy];
+        [mutableCompontents removeObjectAtIndex:0];
+        self.arguments = (NSArray *)mutableCompontents;
+    }
     
     NSLog(@"%@", components);
     

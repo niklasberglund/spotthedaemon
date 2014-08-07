@@ -11,6 +11,7 @@
 
 @interface SDCommand : NSObject
 
+@property (nonatomic) int identifier;
 @property (nonatomic, strong) NSString *command;
 @property (nonatomic, strong) NSArray *arguments;
 

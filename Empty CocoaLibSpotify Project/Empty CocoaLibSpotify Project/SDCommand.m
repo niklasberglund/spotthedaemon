@@ -53,6 +53,7 @@
     }
     
     NSLog(@"%@", components);
+    NSLog(@"%@", self);
     
     NSDictionary *dict = [[NSDictionary alloc] init];
     NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
@@ -79,6 +80,13 @@
 + (NSString *)argumentSeparator
 {
     return @"|";
+}
+
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p; identifier = %i;command = %@; arguments = %@>", [self class], self,
+            self.identifier, self.command, self.arguments];
 }
 
 @end

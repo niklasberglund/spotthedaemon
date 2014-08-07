@@ -10,3 +10,7 @@
 *.xcuserstate
 
 Empty CocoaLibSpotify Project/SpotDaDaemon.xcodeproj/project.xcworkspace/xcuserdata/niklas.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcbkptlist
+
+Empty CocoaLibSpotify Project/SpotDaDaemon.xcodeproj/xcuserdata/niklas.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

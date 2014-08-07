@@ -114,7 +114,8 @@ sendcommand()
 	done
 	
 	packet=$packet"$packet_data"$PACKET_END
-	echo $packet #| nc -cv $CLITIFY_HOST $CLITIFY_PORT
+	echo $packet
+	echo $packet | nc -c $CLITIFY_HOST $CLITIFY_PORT
 	
 	packet_id=$(($packet_id+1))
 	

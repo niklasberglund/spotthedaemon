@@ -41,27 +41,10 @@
 
 #define SP_LIBSPOTIFY_DEBUG_LOGGING 0
 
-#include "appkey.c"
-
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application
-	NSString *userAgent = [[[NSBundle mainBundle] infoDictionary] valueForKey:(__bridge NSString *)kCFBundleIdentifierKey];
-	NSData *appKey = [NSData dataWithBytes:&g_appkey length:g_appkey_size];
-
-	NSError *error = nil;
-	[SPSession initializeSharedSessionWithApplicationKey:appKey
-											   userAgent:userAgent
-										   loadingPolicy:SPAsyncLoadingManual
-												   error:&error];
-	if (error != nil) {
-		NSLog(@"CocoaLibSpotify init failed: %@", error);
-		abort();
-	}
-
-	[[SPSession sharedSession] setDelegate:self];
-    
+    self->spotifyPlayer = [[SDSpotifyPlayer alloc] init];
     self->commandServer = [[SDCommandServer alloc] init];
     [self->commandServer start];
 	

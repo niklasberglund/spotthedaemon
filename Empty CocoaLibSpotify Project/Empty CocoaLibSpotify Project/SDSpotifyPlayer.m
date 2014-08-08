@@ -51,6 +51,13 @@
     return singletonInstance;
 }
 
+
+- (void)loginUser:(NSString *)username password:(NSString *)password
+{
+    [[SPSession sharedSession] attemptLoginWithUserName:username password:password];
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

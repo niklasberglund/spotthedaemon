@@ -7,6 +7,7 @@
 //
 
 #import "SDCommandExecuter.h"
+#import "SDSpotifyPlayer.h"
 
 @implementation SDCommandExecuter
 
@@ -37,6 +38,19 @@
     }
     
     NSLog(@"Executing command %@", command);
+    
+    if ([command.command isEqualToString:@"login"]) {
+        NSString *username = [command.arguments objectAtIndex:0];
+        NSString *password = [command.arguments objectAtIndex:1];
+        [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];
+        [self addObserver:self forKeyPath:@"isLoggingIn" options:nil context:nil];
+    }
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
 }
 
 @end

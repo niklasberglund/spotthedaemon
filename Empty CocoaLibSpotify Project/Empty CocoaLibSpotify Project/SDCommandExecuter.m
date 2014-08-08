@@ -39,7 +39,7 @@
     
     NSLog(@"Executing command %@", command);
     
-    if ([command.command isEqualToString:@"login"]) {
+    if ([command.commandString isEqualToString:@"login"]) {
         NSString *username = [command.arguments objectAtIndex:0];
         NSString *password = [command.arguments objectAtIndex:1];
         [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];

@@ -10,41 +10,41 @@
 
 @implementation SDCommand
 
-- (id)initCommandFromString:(NSString *)commandString
+- (id)initCommandFromString:(NSString *)rawCommandString
 {
     self = [super init];
     
     if (self) {
-        [self populateFromString:commandString];
+        [self populateFromString:rawCommandString];
     }
     
     return self;
 }
 
 
-+ (id)commandFromString:(NSString *)commandString
++ (id)commandFromString:(NSString *)rawCommandString
 {
-    return [[self alloc] initCommandFromString:commandString];
+    return [[self alloc] initCommandFromString:rawCommandString];
 }
 
 
-- (void)populateFromString:(NSString *)commandString
+- (void)populateFromString:(NSString *)rawCommandString
 {
     NSString *commandArgumentsString; // command and arguments
     
-    if ([commandString rangeOfString:[SDCommand identifierSeparator]].location != NSNotFound) {
-        NSArray *separatedByIdentfierSeparator = [commandString componentsSeparatedByString:[SDCommand identifierSeparator]];
+    if ([rawCommandString rangeOfString:[SDCommand identifierSeparator]].location != NSNotFound) {
+        NSArray *separatedByIdentfierSeparator = [rawCommandString componentsSeparatedByString:[SDCommand identifierSeparator]];
         self.identifier = [[separatedByIdentfierSeparator objectAtIndex:0] intValue];
         
         commandArgumentsString = [separatedByIdentfierSeparator objectAtIndex:1];
     }
     else { // no identifier specified
-        commandArgumentsString = commandString;
+        commandArgumentsString = rawCommandString;
     }
     
     NSArray *components = [commandArgumentsString componentsSeparatedByString:[SDCommand argumentSeparator]];
     
-    self.command = [components firstObject];
+    self.commandString = [components firstObject];
     
     if (components.count > 1) { // arguments, if there are any
         NSMutableArray *mutableCompontents = [components mutableCopy];
@@ -86,7 +86,7 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@: %p; identifier = %i;command = %@; arguments = %@>", [self class], self,
-            self.identifier, self.command, self.arguments];
+            self.identifier, self.commandString, self.arguments];
 }
 
 @end

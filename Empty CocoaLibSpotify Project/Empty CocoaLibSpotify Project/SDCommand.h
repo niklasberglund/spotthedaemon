@@ -12,11 +12,11 @@
 @interface SDCommand : NSObject
 
 @property (nonatomic) int identifier;
-@property (nonatomic, strong) NSString *command;
+@property (nonatomic, strong) NSString *commandString;
 @property (nonatomic, strong) NSArray *arguments;
 
-- (id)initCommandFromString:(NSString *)commandString;
-+ (id)commandFromString:(NSString *)commandString;
+- (id)initCommandFromString:(NSString *)rawCommandString;
++ (id)commandFromString:(NSString *)rawCommandString;
 
 + (NSString *)startSeparator;
 + (NSString *)endSeparator;

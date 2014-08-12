@@ -36,30 +36,67 @@
 
 - (void)registerCommand:(SDCommand *)command
 {
-    [self->commandResponseDict setObject:nil forKey:command.command];
+    [self registerCommandString:command.commandString];
+}
+
+
+- (void)registerCommandString:(NSString *)commandString
+{
+    NSMutableDictionary *thisDict = [[NSMutableDictionary alloc] init];
+    [self->commandResponseDict setObject:thisDict forKey:commandString];
 }
 
 
 - (void)recordResponse:(NSData *)response forCommand:(SDCommand *)command
 {
-    [self->commandResponseDict setObject:response forKey:command.command];
+    [self recordResponse:response forCommandString:command.commandString];
 }
 
 - (void)recordResponse:(NSData *)response forCommandString:(NSString *)commandString
 {
-    [self->commandResponseDict setObject:response forKey:commandString];
+    NSMutableDictionary *thisDict = [self->commandResponseDict objectForKey:commandString];
+    
+    if (thisDict == nil) {
+        NSLog(@"ERROR"); // TODO: error handling
+        return;
+    }
+    
+    ResponseBlock responseCallbackBlock = [thisDict objectForKey:@"response"];
+    if (responseCallbackBlock != nil) {
+        responseCallbackBlock(response);
+    }
+    
+    [thisDict setValue:response forKey:@"response"];
+    
+    [self->commandResponseDict setObject:thisDict forKey:commandString];
 }
 
 
 - (NSData *)responseForCommand:(SDCommand *)command
 {
-    return [self->commandResponseDict objectForKey:command.command];
+    return [self responseForCommandString:command.commandString];
 }
 
 
 - (NSData *)responseForCommandString:(NSString *)commandString
 {
-    return [self->commandResponseDict objectForKey:commandString];
+    NSMutableDictionary *thisDict = [self->commandResponseDict objectForKey:commandString];
+    
+    return [thisDict valueForKey:@"response"];
+}
+
+
+- (void)onResponseForCommand:(SDCommand *)command callBlock:(void (^)(NSData *))block
+{
+    [self onResponseForCommandString:command.commandString callBlock:block];
+}
+
+
+- (void)onResponseForCommandString:(NSString *)commandString callBlock:(void (^)(NSData *))block
+{
+    NSMutableDictionary *thisDict = [self->commandResponseDict objectForKey:commandString];
+    
+    [thisDict setValue:block forKey:@"block"];
 }
 
 @end

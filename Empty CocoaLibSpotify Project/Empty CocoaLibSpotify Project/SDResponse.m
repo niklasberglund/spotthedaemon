@@ -40,6 +40,13 @@
     return [[SDResponse alloc] initWithMessage:message success:success identifier:nil type:nil data:nil];
 }
 
+
++ (SDResponse *)responseWithMessage:(NSString *)message success:(BOOL)success data:(NSDictionary *)data
+{
+    return [[SDResponse alloc] initWithMessage:message success:success identifier:nil type:nil data:data];
+}
+
+
 + (SDResponse *)responseWithMessage:(NSString *)message success:(BOOL)success identifier:(NSString *)identifier
 {
     return [[SDResponse alloc] initWithMessage:message success:success identifier:identifier type:nil data:nil];

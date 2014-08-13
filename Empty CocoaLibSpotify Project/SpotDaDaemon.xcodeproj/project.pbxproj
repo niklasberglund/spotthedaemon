@@ -157,25 +157,18 @@
 		50EECAE515CAA82C006E54FA /* Empty CocoaLibSpotify Project */ = {
 			isa = PBXGroup;
 			children = (
+				50EECAE615CAA82C006E54FA /* Supporting Files */,
+				85E25DF6197E773D0013FF67 /* lib */,
 				854FF4ED1984FB85008CAD25 /* categories */,
+				850E07FE199BE20100B74AB9 /* server */,
 				50EECAF115CAA82C006E54FA /* AppDelegate.h */,
 				50EECAF215CAA82C006E54FA /* AppDelegate.m */,
 				50EECAF415CAA82C006E54FA /* MainMenu.xib */,
-				85E25E01197FE93B0013FF67 /* SDCommand.h */,
-				85E25E02197FE93B0013FF67 /* SDCommand.m */,
-				85E25DF3197E76D80013FF67 /* SDCommandServer.h */,
-				85E25DF4197E76D80013FF67 /* SDCommandServer.m */,
 				8508F5171986BD2D00D67F65 /* SDCommandExecuter.h */,
 				8508F5181986BD2D00D67F65 /* SDCommandExecuter.m */,
-				85E25DF6197E773D0013FF67 /* lib */,
-				50EECAE615CAA82C006E54FA /* Supporting Files */,
 				8508F51B19877B9900D67F65 /* SDCommandExecuterDelegate.h */,
 				850E07F519937FF100B74AB9 /* SDSpotifyPlayer.h */,
 				850E07F619937FF100B74AB9 /* SDSpotifyPlayer.m */,
-				850E07F81994B84500B74AB9 /* SDCommandResponseRecorder.h */,
-				850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */,
-				850E07FB199A39FC00B74AB9 /* SDResponse.h */,
-				850E07FC199A39FC00B74AB9 /* SDResponse.m */,
 			);
 			path = "Empty CocoaLibSpotify Project";
 			sourceTree = "<group>";
@@ -190,6 +183,21 @@
 				50EECAEE15CAA82C006E54FA /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		850E07FE199BE20100B74AB9 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				85E25DF3197E76D80013FF67 /* SDCommandServer.h */,
+				85E25DF4197E76D80013FF67 /* SDCommandServer.m */,
+				85E25E01197FE93B0013FF67 /* SDCommand.h */,
+				85E25E02197FE93B0013FF67 /* SDCommand.m */,
+				850E07FB199A39FC00B74AB9 /* SDResponse.h */,
+				850E07FC199A39FC00B74AB9 /* SDResponse.m */,
+				850E07F81994B84500B74AB9 /* SDCommandResponseRecorder.h */,
+				850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */,
+			);
+			name = server;
 			sourceTree = "<group>";
 		};
 		854FF4ED1984FB85008CAD25 /* categories */ = {

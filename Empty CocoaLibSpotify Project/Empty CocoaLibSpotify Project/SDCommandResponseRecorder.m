@@ -47,12 +47,12 @@
 }
 
 
-- (void)recordResponse:(NSData *)response forCommand:(SDCommand *)command
+- (void)recordResponse:(SDResponse *)response forCommand:(SDCommand *)command
 {
     [self recordResponse:response forCommandString:command.commandString];
 }
 
-- (void)recordResponse:(NSData *)response forCommandString:(NSString *)commandString
+- (void)recordResponse:(SDResponse *)response forCommandString:(NSString *)commandString
 {
     NSMutableDictionary *thisDict = [self->commandResponseDict objectForKey:commandString];
     

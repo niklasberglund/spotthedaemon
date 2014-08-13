@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SDCommand.h"
+#import "SDResponse.h"
 
-typedef void (^ResponseBlock)(NSData *response);
+typedef void (^ResponseBlock)(SDResponse *response);
 
 @interface SDCommandResponseRecorder : NSObject {
     NSMutableDictionary *commandResponseDict;
@@ -19,8 +20,8 @@ typedef void (^ResponseBlock)(NSData *response);
 
 - (void)registerCommand:(SDCommand *)command;
 - (void)registerCommandString:(NSString *)commandString;
-- (void)recordResponse:(NSData *)response forCommand:(SDCommand *)command;
-- (void)recordResponse:(NSData *)response forCommandString:(NSString *)commandString;
+- (void)recordResponse:(SDResponse *)response forCommand:(SDCommand *)command;
+- (void)recordResponse:(SDResponse *)response forCommandString:(NSString *)commandString;
 - (NSData *)responseForCommand:(SDCommand *)command;
 - (NSData *)responseForCommandString:(NSString *)commandString;
 - (void)onResponseForCommand:(SDCommand *)command callBlock:(void (^)(NSData *response))block;

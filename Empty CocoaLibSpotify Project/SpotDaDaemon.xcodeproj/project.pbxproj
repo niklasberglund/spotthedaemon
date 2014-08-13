@@ -16,6 +16,7 @@
 		8508F5191986BD2D00D67F65 /* SDCommandExecuter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8508F5181986BD2D00D67F65 /* SDCommandExecuter.m */; };
 		850E07F719937FF100B74AB9 /* SDSpotifyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E07F619937FF100B74AB9 /* SDSpotifyPlayer.m */; };
 		850E07FA1994B84500B74AB9 /* SDCommandResponseRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */; };
+		850E07FD199A39FC00B74AB9 /* SDResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E07FC199A39FC00B74AB9 /* SDResponse.m */; };
 		854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
@@ -85,6 +86,8 @@
 		850E07F619937FF100B74AB9 /* SDSpotifyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpotifyPlayer.m; sourceTree = "<group>"; };
 		850E07F81994B84500B74AB9 /* SDCommandResponseRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandResponseRecorder.h; sourceTree = "<group>"; };
 		850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandResponseRecorder.m; sourceTree = "<group>"; };
+		850E07FB199A39FC00B74AB9 /* SDResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDResponse.h; sourceTree = "<group>"; };
+		850E07FC199A39FC00B74AB9 /* SDResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDResponse.m; sourceTree = "<group>"; };
 		854FF4E91984FACD008CAD25 /* NSDictionary+jsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+jsonString.h"; sourceTree = "<group>"; };
 		854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+jsonString.m"; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				850E07F619937FF100B74AB9 /* SDSpotifyPlayer.m */,
 				850E07F81994B84500B74AB9 /* SDCommandResponseRecorder.h */,
 				850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */,
+				850E07FB199A39FC00B74AB9 /* SDResponse.h */,
+				850E07FC199A39FC00B74AB9 /* SDResponse.m */,
 			);
 			path = "Empty CocoaLibSpotify Project";
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				850E07F719937FF100B74AB9 /* SDSpotifyPlayer.m in Sources */,
 				854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */,
 				85E25E03197FE93B0013FF67 /* SDCommand.m in Sources */,
+				850E07FD199A39FC00B74AB9 /* SDResponse.m in Sources */,
 				85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */,
 				50EECAEC15CAA82C006E54FA /* main.m in Sources */,
 				50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */,

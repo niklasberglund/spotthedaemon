@@ -52,4 +52,13 @@
     return [[SDResponse alloc] initWithMessage:message success:success identifier:identifier type:nil data:nil];
 }
 
+
+#pragma mark -
+#pragma mark Misc
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p; identifier = %@;message = %@; success = %@; type = %@; data = %@>", [self class], self,
+            self.identifier, self.message, self.success ? @"YES" : @"NO", self.type, self.data];
+}
+
 @end

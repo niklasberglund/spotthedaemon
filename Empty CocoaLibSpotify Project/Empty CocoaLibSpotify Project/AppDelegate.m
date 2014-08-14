@@ -42,10 +42,9 @@
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self->spotifyPlayer = [[SDSpotifyPlayer alloc] init];
+    self->spotifyPlayer = [SDSpotifyPlayer sharedPlayer];
     self->commandServer = [[SDCommandServer alloc] init];
     [self->commandServer start];
-	
 }
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {

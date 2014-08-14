@@ -61,7 +61,7 @@
         return;
     }
     
-    ResponseBlock responseCallbackBlock = [thisDict objectForKey:@"response"];
+    ResponseBlock responseCallbackBlock = [thisDict objectForKey:@"block"];
     if (responseCallbackBlock != nil) {
         responseCallbackBlock(response);
     }

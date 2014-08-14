@@ -7,6 +7,8 @@
 //
 
 #import "SDSpotifyPlayer.h"
+#import "SDCommandResponseRecorder.h"
+#import "SDResponse.h"
 
 #include "appkey.c"
 
@@ -63,11 +65,19 @@
 
 -(void)sessionDidLoginSuccessfully:(SPSession *)aSession {
 	// Called after a successful login.
+    
+    SDResponse *response = [SDResponse responseWithMessage:@"Login successful" success:YES];
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"login"];
 }
 
 -(void)session:(SPSession *)aSession didFailToLoginWithError:(NSError *)error {
 	// Called after a failed login.
     NSLog(@"ERROR: Login failed with error: %@", error);
+    
+    NSDictionary *responseData = @{ @"error" : error };
+    SDResponse *response = [SDResponse responseWithMessage:@"Login failed" success:NO data:responseData];
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"login"];
+    
 }
 
 -(void)sessionDidLogOut:(SPSession *)aSession; {

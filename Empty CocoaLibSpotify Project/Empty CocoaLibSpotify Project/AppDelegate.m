@@ -37,7 +37,6 @@
 
 #import "AppDelegate.h"
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
-#import "SDCommandServer.h"
 
 @implementation AppDelegate
 
@@ -49,13 +48,13 @@
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
 	// When quitting, you should logout and wait for logout completion before terminating.
-	if ([SPSession sharedSession].connectionState == SP_CONNECTION_STATE_LOGGED_OUT ||
+	/*if ([SPSession sharedSession].connectionState == SP_CONNECTION_STATE_LOGGED_OUT ||
 		[SPSession sharedSession].connectionState == SP_CONNECTION_STATE_UNDEFINED)
 		return NSTerminateNow;
 
 	[[SPSession sharedSession] logout:^{
 		[[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
-	}];
+	}];*/
 	return NSTerminateLater;
 }
 

@@ -8,6 +8,7 @@
 
 #import "SDCommandExecuter.h"
 #import "SDSpotifyPlayer.h"
+#import "SDCommandResponseRecorder.h"
 
 @implementation SDCommandExecuter
 
@@ -40,10 +41,15 @@
     NSLog(@"Executing command %@", command);
     
     if ([command.commandString isEqualToString:@"login"]) {
+        [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
+        [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
+            NSLog(@"GOT RESPONSE");
+            NSLog(@"%@", response);
+        }];
+        
         NSString *username = [command.arguments objectAtIndex:0];
         NSString *password = [command.arguments objectAtIndex:1];
         [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];
-        [self addObserver:self forKeyPath:@"isLoggingIn" options:nil context:nil];
     }
 }
 

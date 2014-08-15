@@ -54,6 +54,23 @@
 
 
 #pragma mark -
+#pragma mark JSON
+- (NSData *)json
+{
+    NSMutableDictionary *jsonDict = [[NSMutableDictionary alloc] init];
+    [jsonDict setValue:self.identifier forKey:@"identifier"];
+    [jsonDict setValue:self.success ? @"YES" : @"NO" forKey:@"success"];
+    [jsonDict setValue:self.message forKey:@"message"];
+    [jsonDict setValue:self.type forKey:@"type"];
+    [jsonDict setValue:self.data forKey:@"data"];
+    
+    NSLog(@"%@", jsonDict);
+    
+    return [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:nil];
+}
+
+
+#pragma mark -
 #pragma mark Misc
 - (NSString *)description
 {

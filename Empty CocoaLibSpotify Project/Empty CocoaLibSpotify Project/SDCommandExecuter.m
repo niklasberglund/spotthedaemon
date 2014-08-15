@@ -44,7 +44,14 @@
         [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
         [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
             NSLog(@"GOT RESPONSE");
-            NSLog(@"%@", response);
+            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(finishedExecutingCommand:withResponse:)]) {
+                [self.delegate finishedExecutingCommand:command withResponse:response];
+            }
+            else {
+                
+            }
         }];
         
         NSString *username = [command.arguments objectAtIndex:0];

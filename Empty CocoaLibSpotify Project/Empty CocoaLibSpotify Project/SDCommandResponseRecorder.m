@@ -63,7 +63,7 @@
     
     ResponseBlock responseCallbackBlock = [thisDict objectForKey:@"block"];
     if (responseCallbackBlock != nil) {
-        responseCallbackBlock(response);
+        responseCallbackBlock([response json]);
     }
     
     [thisDict setValue:response forKey:@"response"];

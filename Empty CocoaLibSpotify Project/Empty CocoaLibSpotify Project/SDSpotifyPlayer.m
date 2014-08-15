@@ -74,7 +74,7 @@
 	// Called after a failed login.
     NSLog(@"ERROR: Login failed with error: %@", error);
     
-    NSDictionary *responseData = @{ @"error" : error };
+    NSDictionary *responseData = @{ @"error" : [error localizedDescription] };
     SDResponse *response = [SDResponse responseWithMessage:@"Login failed" success:NO data:responseData];
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"login"];
     

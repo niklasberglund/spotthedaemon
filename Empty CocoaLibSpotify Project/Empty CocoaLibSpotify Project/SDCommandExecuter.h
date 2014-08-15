@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SDCommand.h"
+#import "SDCommandExecuterDelegate.h"
 
 @interface SDCommandExecuter : NSObject
 
-@property (nonatomic, weak) NSObject *delegate;
+@property (nonatomic, weak) NSObject<SDCommandExecuterDelegate> *delegate;
 
 - (id)initWithDelegate:(id)delegate;
 + (SDCommandExecuter *)commandExecuterWithDelegate:(id)delegate;

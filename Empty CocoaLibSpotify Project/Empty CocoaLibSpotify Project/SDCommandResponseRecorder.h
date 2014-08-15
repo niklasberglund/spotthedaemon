@@ -10,7 +10,7 @@
 #import "SDCommand.h"
 #import "SDResponse.h"
 
-typedef void (^ResponseBlock)(SDResponse *response);
+typedef void (^ResponseBlock)(NSData *response);
 
 @interface SDCommandResponseRecorder : NSObject {
     NSMutableDictionary *commandResponseDict;

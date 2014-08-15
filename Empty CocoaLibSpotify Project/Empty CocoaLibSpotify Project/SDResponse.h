@@ -22,4 +22,6 @@
 + (SDResponse *)responseWithMessage:(NSString *)message success:(BOOL)success data:(NSDictionary *)data;
 + (SDResponse *)responseWithMessage:(NSString *)message success:(BOOL)success identifier:(NSString *)identifier;
 
+- (NSData *)json;
+
 @end

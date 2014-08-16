@@ -1,12 +1,12 @@
 #!/bin/bash
 
 readonly CLITIFY_VERSION="0.1"
-
 readonly CLITIFY_HOST="127.0.0.1"
 readonly CLITIFY_PORT="4030"
-
 readonly CLITIFY_NAME="CLItify-bash"
 readonly CLITIFY_EXECUTABLE_NAME=$(basename $0)
+
+CLITIFY_VERBOSE=0
 
 readonly PACKET_START="\$"
 readonly PACKET_END="#"
@@ -52,6 +52,19 @@ usage()
 
 main()
 {
+	while getopts ":v" opt; do
+	  case $opt in
+	    v)
+		  CLITIFY_VERBOSE=1
+		  shift
+	      ;;
+	    #\?)
+	      #echo "Invalid option: -$OPTARG" >&2
+	      #;;
+	  esac
+	done
+	
+	
 	case "$1" in
 	    --help)
 	        usage
@@ -62,7 +75,6 @@ main()
 			exit 0
 			;;
 		login)
-			echo "login"
 			clitify_login "$2" "$3"
 			exit 0
 			;;
@@ -78,8 +90,12 @@ clitify_login()
 	local username="$1"
 	local password="$2"
 	
-	echo "username: $username"
-	echo "password: $password"
+	if [ $CLITIFY_VERBOSE ]
+	then
+		echo "will send login command with following credentials"
+		echo "username: $username"
+		echo "password: $password"
+	fi
 	
 	local sd_command="login"
 	local sd_args=(
@@ -118,10 +134,13 @@ sendcommand()
 	packet=$packet"$packet_data"$PACKET_END
 	packet="$packet\r\n" # packets end with CRLF
 	
-	#echo $packet
-	#echo $CLITIFY_HOST
-	#echo $CLITIFY_PORT
+	if [ $CLITIFY_VERBOSE ]
+	then
+		echo "sending packet: $packet"
+		echo "to: $CLITIFY_HOST:$CLITIFY_PORT"
+	fi
 	
+	# the echo line break in a while loop is a hack to make nc stay open until the socket is closed by server, then exit
 	(echo -e $packet; (while true; do echo -e "\n"; sleep $sleep_time; done))| nc -c $CLITIFY_HOST $CLITIFY_PORT
 	
 	packet_id=$(($packet_id+1))

@@ -104,8 +104,6 @@ clitify_login()
 	)
 	
 	sendcommand "$sd_command" ${sd_args[@]}
-	
-	echo $PACKET_END
 }
 
 

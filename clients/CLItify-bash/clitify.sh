@@ -98,6 +98,8 @@ sendcommand()
 {
 	local send_command="$1"
 	
+	local sleep_time="0.5"
+	
 	local packet_data="$send_command"
 	local packet="$PACKET_START$packet_id$PACKET_IDENTIFIER_SEPARATOR"
 	
@@ -114,8 +116,13 @@ sendcommand()
 	done
 	
 	packet=$packet"$packet_data"$PACKET_END
-	echo $packet
-	echo $packet | nc -c $CLITIFY_HOST $CLITIFY_PORT
+	packet="$packet\r\n" # packets end with CRLF
+	
+	#echo $packet
+	#echo $CLITIFY_HOST
+	#echo $CLITIFY_PORT
+	
+	(echo -e $packet; (while true; do echo -e "\n"; sleep $sleep_time; done))| nc -c $CLITIFY_HOST $CLITIFY_PORT
 	
 	packet_id=$(($packet_id+1))
 	
@@ -128,6 +135,6 @@ sendcommand()
 }
 
 set -e
-#set -u
+#set -u´
 
 main "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"

@@ -141,7 +141,13 @@ sendcommand()
 	fi
 	
 	# the echo line break in a while loop is a hack to make nc stay open until the socket is closed by server, then exit
-	(echo -e $packet; (while true; do echo -e "\n"; sleep $sleep_time; done))| nc -c $CLITIFY_HOST $CLITIFY_PORT
+	local response=$((echo -e $packet; (while true; do echo -e "\n"; sleep $sleep_time; done))| nc -c $CLITIFY_HOST $CLITIFY_PORT)
+	
+	if [ $CLITIFY_VERBOSE ]
+	then
+		echo "got response:"
+		echo $response
+	fi
 	
 	packet_id=$(($packet_id+1))
 	

@@ -77,7 +77,6 @@
     NSDictionary *responseData = @{ @"error" : [error localizedDescription] };
     SDResponse *response = [SDResponse responseWithMessage:@"Login failed" success:NO data:responseData];
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"login"];
-    
 }
 
 -(void)sessionDidLogOut:(SPSession *)aSession; {

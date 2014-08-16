@@ -54,10 +54,11 @@
 - (void)socket:(GCDAsyncSocket *)sender didAcceptNewSocket:(GCDAsyncSocket *)newSocket
 {
     NSLog(@"accepting socket");
-    NSMutableDictionary *socketDict = [NSMutableDictionary dictionaryWithObjects:@[newSocket, [NSMutableData data]] forKeys:@[@"socket", @"data"]];
+    NSMutableDictionary *socketDict = [NSMutableDictionary dictionaryWithObjects:@[newSocket, [NSMutableData data], [[NSMutableArray alloc] init]] forKeys:@[@"socket", @"data", @"commands"]];
     [self->activeSockets addObject:socketDict];
     NSLog(@"accepted socket %@", newSocket);
     
+    //[newSocket readDataWithTimeout:60.0 tag:123];
     [newSocket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
 }
 
@@ -77,6 +78,8 @@
         NSLog(@"ERROR: Socket disconnected with error");
         NSLog(@"%@", error);
     }
+    
+    NSLog(@"%@", self->activeSockets);
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
@@ -94,6 +97,8 @@
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     NSMutableData *socketData;
+    
+    //[sock writeData:[@"TEST" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:60.0 tag:0];
     
     NSLog(@"looking for this socket's data");
     for (NSMutableDictionary *socketDict in [self->activeSockets copy]) {
@@ -122,9 +127,14 @@
     NSArray *commands = [self extractCommandsFromString:dataString];
     
     for (SDCommand *extractedCommand in commands) {
+        [self registerCommand:extractedCommand forSocket:sock];
         [self->commandExecuter executeCommand:extractedCommand];
     }
     
+    NSLog(@"%@", commands);
+    NSLog(@"DATA: %@", [[NSString alloc] initWithData:socketData encoding:NSUTF8StringEncoding]);
+    
+    //[sock readDataWithTimeout:60.0 tag:123];
     [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
 }
 
@@ -155,10 +165,76 @@
 }
 
 
-- (void)finishedExecutingCommand:(SDCommand *)withResponse :(NSString *)responseString
+- (void)finishedExecutingCommand:(SDCommand *)command withResponse:(NSData *)response
 {
-
+    NSLog(@"finished executing command");
+    NSLog(@"%@", command);
+    NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+    NSLog(@"");
+    
+    GCDAsyncSocket *socket = [self socketForCommand:command];
+    
+    [socket writeData:response withTimeout:60.0 tag:0];
+    [socket disconnectAfterWriting];
 }
+
+
+#pragma mark -
+#pragma mark Socket functions
+
+- (void)addActiveSocket:(GCDAsyncSocket *)socket
+{
+    NSMutableDictionary *socketDict = [NSMutableDictionary dictionaryWithObjects:@[socket, [NSMutableData data], [[NSMutableArray alloc] init]] forKeys:@[@"socket", @"data", @"commands"]];
+    [self->activeSockets addObject:socketDict];
+}
+
+
+- (void)removeActiveSocket:(GCDAsyncSocket *)socket
+{
+    for (NSDictionary *socketDict in [self->activeSockets copy]) {
+        if ([socketDict objectForKey:@"socket"] == socket) {
+            [self->activeSockets removeObject:socketDict];
+        }
+    }
+}
+
+
+- (void)registerCommand:(SDCommand *)command forSocket:(GCDAsyncSocket *)socket
+{
+    for (NSDictionary *socketDict in [self->activeSockets copy]) {
+        GCDAsyncSocket *currentSocket = (GCDAsyncSocket *)[socketDict valueForKey:@"socket"];
+        
+        if (currentSocket == socket) {
+            NSMutableArray *commands = (NSMutableArray *)[socketDict objectForKey:@"commands"];
+            [commands addObject:command];
+        }
+    }
+}
+
+
+- (GCDAsyncSocket *)socketForCommand:(SDCommand *)command
+{
+    for (NSDictionary *socketDict in [self->activeSockets copy]) {
+        NSArray *thisDictCommands = (NSArray *)[socketDict objectForKey:@"commands"];
+        
+        for (SDCommand *currentCommand in thisDictCommands) {
+            if (currentCommand == command) { // match
+                GCDAsyncSocket *socket = [socketDict objectForKey:@"socket"];
+                return socket;
+            }
+        }
+    }
+    
+    // not found
+    NSLog(@"%@", self->activeSockets);
+    NSLog(@"%@", command);
+    NSLog(@"ERROR: no socket found for command");
+    
+    return nil;
+}
+
+
+#pragma mark -
 
 
 @end

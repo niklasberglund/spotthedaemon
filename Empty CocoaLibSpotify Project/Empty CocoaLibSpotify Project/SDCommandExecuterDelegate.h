@@ -10,6 +10,6 @@
 
 @protocol SDCommandExecuterDelegate <NSObject>
 
-- (void)finishedExecutingCommand:(SDCommand *)command withResponse:(NSData *)responseString;
+- (void)finishedExecutingCommand:(SDCommand *)command withResponse:(NSData *)response;
 
 @end

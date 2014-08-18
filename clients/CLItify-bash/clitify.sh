@@ -26,7 +26,7 @@ fi
 usage()
 {	
 	cat <<- EOF
-	Usage: $CLITIFY_EXECUTABLE_NAME [<command>] | [--help] [--version]
+	Usage: $CLITIFY_EXECUTABLE_NAME ([-v] [<command>]) | [--help] [--version]
 	
 	Bash client used for controlling SpotDaDaemon Spotify daemon.
 	
@@ -36,6 +36,7 @@ usage()
 	   status		Get current session status
 	   
 	OPTIONS:
+	   -v			Verbose output 
 	   --version		Display version information.
 	   --help		Show this help.
 	   

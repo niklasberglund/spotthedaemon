@@ -128,7 +128,7 @@
     
     for (SDCommand *extractedCommand in commands) {
         [self registerCommand:extractedCommand forSocket:sock];
-        [self->commandExecuter executeCommand:extractedCommand];
+        [self->commandExecuter executeCommand:extractedCommand fromSocket:sock];
     }
     
     NSLog(@"%@", commands);

@@ -30,7 +30,7 @@
 }
 
 
-- (void)executeCommand:(SDCommand *)command
+- (void)executeCommand:(SDCommand *)command fromSocket:(GCDAsyncSocket *)socket
 {
     // delegate is required
     if (!self.delegate) {

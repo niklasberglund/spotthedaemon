@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SDCommand.h"
 #import "SDCommandExecuterDelegate.h"
+#import "GCDAsyncSocket.h"
 
 @interface SDCommandExecuter : NSObject
 
@@ -17,6 +18,6 @@
 - (id)initWithDelegate:(id)delegate;
 + (SDCommandExecuter *)commandExecuterWithDelegate:(id)delegate;
 
-- (void)executeCommand:(SDCommand *)command;
+- (void)executeCommand:(SDCommand *)command fromSocket:(GCDAsyncSocket *)socket;
 
 @end

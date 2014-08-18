@@ -68,5 +68,15 @@
     self->statusItem.highlightMode = YES;
 }
 
+#pragma mark -
+#pragma mark Status menu actions
+
+- (IBAction)displaySettings:(id)sender {
+    NSLog(@"Display settings");
+}
+
+- (IBAction)quitApplication:(id)sender {
+    [[NSApplication sharedApplication] terminate:self];
+}
 
 @end

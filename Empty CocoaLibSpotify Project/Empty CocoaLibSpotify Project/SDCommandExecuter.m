@@ -41,22 +41,7 @@
     NSLog(@"Executing command %@", command);
     
     if ([command.commandString isEqualToString:@"login"]) {
-        [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
-        [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
-            NSLog(@"GOT RESPONSE");
-            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-            
-            if (self.delegate && [self.delegate respondsToSelector:@selector(finishedExecutingCommand:withResponse:)]) {
-                [self.delegate finishedExecutingCommand:command withResponse:response];
-            }
-            else {
-                
-            }
-        }];
-        
-        NSString *username = [command.arguments objectAtIndex:0];
-        NSString *password = [command.arguments objectAtIndex:1];
-        [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];
+        [self executeLoginCommandFromSocket:socket commandObject:command];
     }
     else if ([command.commandString isEqualToString:@"status"]) {
         [self executeStatusCommandFromSocket:socket];
@@ -70,21 +55,24 @@
 }
 
 
-/*
- SP_CONNECTION_STATE_LOGGED_OUT
- User not yet logged in.
- 
- SP_CONNECTION_STATE_OFFLINE
- User is logged in but in offline mode.
- 
- SP_CONNECTION_STATE_LOGGED_IN
- Logged in against a Spotify access point.
- 
- SP_CONNECTION_STATE_DISCONNECTED
- Was logged in, but has now been disconnected.
- 
- SP_CONNECTION_STATE_UNDEFINED
- */
+- (void)executeLoginCommandFromSocket:(GCDAsyncSocket *)socket commandObject:(SDCommand *)command
+{
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(finishedExecutingCommand:withResponse:)]) {
+            [self.delegate finishedExecutingCommand:command withResponse:response];
+        }
+        else {
+            
+        }
+    }];
+    
+    NSString *username = [command.arguments objectAtIndex:0];
+    NSString *password = [command.arguments objectAtIndex:1];
+    [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];
+}
+
+
 - (void)executeStatusCommandFromSocket:(GCDAsyncSocket *)socket
 {
     NSMutableDictionary *responseDataDict = [[NSMutableDictionary alloc] init];

@@ -37,10 +37,12 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, SPSessionDelegate>
 {
+    NSStatusItem *statusItem;
     SDCommandServer *commandServer;
     SDSpotifyPlayer *spotifyPlayer;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSMenu *statusMenu;
 
 @end

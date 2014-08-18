@@ -44,6 +44,7 @@
     self->spotifyPlayer = [SDSpotifyPlayer sharedPlayer];
     self->commandServer = [[SDCommandServer alloc] init];
     [self->commandServer start];
+    
 }
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
@@ -56,6 +57,15 @@
 		[[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
 	}];*/
 	return NSTerminateLater;
+}
+
+- (void)awakeFromNib
+{
+    // set up status item and it's menu
+    self->statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    self->statusItem.title = @"S";
+    self->statusItem.menu = self.statusMenu;
+    self->statusItem.highlightMode = YES;
 }
 
 

@@ -76,7 +76,7 @@
 }
 
 - (IBAction)quitApplication:(id)sender {
-    [[NSApplication sharedApplication] terminate:self];
+    [NSApp terminate:self];
 }
 
 @end

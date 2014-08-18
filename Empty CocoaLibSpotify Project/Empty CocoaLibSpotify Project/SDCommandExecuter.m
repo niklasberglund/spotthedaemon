@@ -46,6 +46,9 @@
     else if ([command.commandString isEqualToString:@"status"]) {
         [self executeStatusCommandFromSocket:socket];
     }
+    else if ([command.commandString isEqualToString:@"logout"]) {
+        [self executeLogoutCommandFromSocket:socket commandObject:command];
+    }
 }
 
 
@@ -70,6 +73,18 @@
     NSString *username = [command.arguments objectAtIndex:0];
     NSString *password = [command.arguments objectAtIndex:1];
     [[SDSpotifyPlayer sharedPlayer] loginUser:username password:password];
+}
+
+
+- (void)executeLogoutCommandFromSocket:(GCDAsyncSocket *)socket commandObject:(SDCommand *)command
+{
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
+    [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
+        [socket writeData:response withTimeout:60.0 tag:0];
+        [socket disconnectAfterWriting];
+    }];
+    
+    [[SDSpotifyPlayer sharedPlayer] logout];
 }
 
 

@@ -60,6 +60,16 @@
 }
 
 
+- (void)logout
+{
+    [[SPSession sharedSession] logout:^{
+        SDResponse *response = [SDResponse responseWithMessage:@"Logged out" success:YES];
+        
+        [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"logout"];
+    }];
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

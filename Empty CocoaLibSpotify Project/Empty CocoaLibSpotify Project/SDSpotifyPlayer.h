@@ -14,5 +14,6 @@
 + (SDSpotifyPlayer *)sharedPlayer;
 
 - (void)loginUser:(NSString *)username password:(NSString *)password;
+- (void)logout;
 
 @end

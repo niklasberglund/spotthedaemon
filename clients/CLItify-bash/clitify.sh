@@ -90,7 +90,7 @@ clitify_login()
 	local username="$1"
 	local password="$2"
 	
-	if [ $CLITIFY_VERBOSE ]
+	if [ $CLITIFY_VERBOSE -eq 1 ]
 	then
 		echo "will send login command with following credentials"
 		echo "username: $username"
@@ -132,7 +132,7 @@ sendcommand()
 	packet=$packet"$packet_data"$PACKET_END
 	packet="$packet\r\n" # packets end with CRLF
 	
-	if [ $CLITIFY_VERBOSE ]
+	if [ $CLITIFY_VERBOSE -eq 1 ]
 	then
 		echo "sending packet: $packet"
 		echo "to: $CLITIFY_HOST:$CLITIFY_PORT"
@@ -141,7 +141,7 @@ sendcommand()
 	# the echo line break in a while loop is a hack to make nc stay open until the socket is closed by server, then exit
 	local response=$((echo -e $packet; (while true; do echo -e "\n"; sleep $sleep_time; done))| nc -c $CLITIFY_HOST $CLITIFY_PORT)
 	
-	if [ $CLITIFY_VERBOSE ]
+	if [ $CLITIFY_VERBOSE -eq 1 ]
 	then
 		echo "got response:"
 		echo $response

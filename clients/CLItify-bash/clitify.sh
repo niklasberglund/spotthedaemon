@@ -78,6 +78,10 @@ main()
 			clitify_login "$2" "$3"
 			exit 0
 			;;
+		status)
+			clitify_status
+			exit 0
+			;;
 	    *)
 	        usage
 			exit 1
@@ -104,6 +108,12 @@ clitify_login()
 	)
 	
 	sendcommand "$sd_command" ${sd_args[@]}
+}
+
+
+clitify_status()
+{
+	sendcommand "status"
 }
 
 

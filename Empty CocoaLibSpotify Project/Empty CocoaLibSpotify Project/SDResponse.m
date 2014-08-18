@@ -59,7 +59,7 @@
 {
     NSMutableDictionary *jsonDict = [[NSMutableDictionary alloc] init];
     [jsonDict setValue:self.identifier forKey:@"identifier"];
-    [jsonDict setValue:self.success ? @"YES" : @"NO" forKey:@"success"];
+    [jsonDict setValue:[NSNumber numberWithBool:self.success] forKey:@"success"];
     [jsonDict setValue:self.message forKey:@"message"];
     [jsonDict setValue:self.type forKey:@"type"];
     [jsonDict setValue:self.data forKey:@"data"];

@@ -32,6 +32,8 @@ usage()
 	
 	COMMANDS:
 	   login		Expects arguments <username> and <password>
+	   logout		Log out current session
+	   status		Get current session status
 	   
 	OPTIONS:
 	   --version		Display version information.

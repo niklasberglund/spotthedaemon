@@ -34,12 +34,15 @@
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
 #import "SDCommandServer.h"
 #import "SDSpotifyPlayer.h"
+#import "SDSettingsWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, SPSessionDelegate>
 {
     NSStatusItem *statusItem;
     SDCommandServer *commandServer;
     SDSpotifyPlayer *spotifyPlayer;
+    
+    SDSettingsWindowController *settingsViewController;
 }
 
 @property (assign) IBOutlet NSWindow *window;

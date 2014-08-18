@@ -38,6 +38,7 @@
 #import "AppDelegate.h"
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
 
+
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -45,6 +46,7 @@
     self->commandServer = [[SDCommandServer alloc] init];
     [self->commandServer start];
     
+    self->settingsViewController = [[SDSettingsWindowController alloc] initWithWindowNibName:@"SDSettingsWindowController"];
 }
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
@@ -72,7 +74,7 @@
 #pragma mark Status menu actions
 
 - (IBAction)displaySettings:(id)sender {
-    NSLog(@"Display settings");
+    [self->settingsViewController showWindow:nil];
 }
 
 - (IBAction)quitApplication:(id)sender {

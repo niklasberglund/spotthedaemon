@@ -18,6 +18,8 @@
 		850E07FA1994B84500B74AB9 /* SDCommandResponseRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E07F91994B84500B74AB9 /* SDCommandResponseRecorder.m */; };
 		850E07FD199A39FC00B74AB9 /* SDResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E07FC199A39FC00B74AB9 /* SDResponse.m */; };
 		854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */; };
+		856093CA19A2837F0037B1E8 /* SDSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093C819A2837F0037B1E8 /* SDSettingsWindowController.m */; };
+		856093CB19A2837F0037B1E8 /* SDSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 856093C919A2837F0037B1E8 /* SDSettingsWindowController.xib */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
 		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
@@ -90,6 +92,9 @@
 		850E07FC199A39FC00B74AB9 /* SDResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDResponse.m; sourceTree = "<group>"; };
 		854FF4E91984FACD008CAD25 /* NSDictionary+jsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+jsonString.h"; sourceTree = "<group>"; };
 		854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+jsonString.m"; sourceTree = "<group>"; };
+		856093C719A2837F0037B1E8 /* SDSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingsWindowController.h; sourceTree = "<group>"; };
+		856093C819A2837F0037B1E8 /* SDSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsWindowController.m; sourceTree = "<group>"; };
+		856093C919A2837F0037B1E8 /* SDSettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDSettingsWindowController.xib; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 				85E25DF6197E773D0013FF67 /* lib */,
 				854FF4ED1984FB85008CAD25 /* categories */,
 				850E07FE199BE20100B74AB9 /* server */,
+				856093CC19A2896E0037B1E8 /* GUI */,
 				50EECAF115CAA82C006E54FA /* AppDelegate.h */,
 				50EECAF215CAA82C006E54FA /* AppDelegate.m */,
 				50EECAF415CAA82C006E54FA /* MainMenu.xib */,
@@ -207,6 +213,16 @@
 				854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */,
 			);
 			name = categories;
+			sourceTree = "<group>";
+		};
+		856093CC19A2896E0037B1E8 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				856093C719A2837F0037B1E8 /* SDSettingsWindowController.h */,
+				856093C819A2837F0037B1E8 /* SDSettingsWindowController.m */,
+				856093C919A2837F0037B1E8 /* SDSettingsWindowController.xib */,
+			);
+			name = GUI;
 			sourceTree = "<group>";
 		};
 		85E25DF6197E773D0013FF67 /* lib */ = {
@@ -316,6 +332,7 @@
 				50EECAEA15CAA82C006E54FA /* InfoPlist.strings in Resources */,
 				50EECAF015CAA82C006E54FA /* Credits.rtf in Resources */,
 				50EECAF615CAA82C006E54FA /* MainMenu.xib in Resources */,
+				856093CB19A2837F0037B1E8 /* SDSettingsWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +354,7 @@
 				85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */,
 				50EECAEC15CAA82C006E54FA /* main.m in Sources */,
 				50EECAF315CAA82C006E54FA /* AppDelegate.m in Sources */,
+				856093CA19A2837F0037B1E8 /* SDSettingsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

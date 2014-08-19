@@ -11,9 +11,12 @@
 
 @interface SDSpotifyPlayer : NSObject<SPSessionDelegate>
 
+@property (nonatomic, strong) SPPlaybackManager *playbackManager;
+
 + (SDSpotifyPlayer *)sharedPlayer;
 
 - (void)loginUser:(NSString *)username password:(NSString *)password;
 - (void)logout;
+- (void)playTrack:(NSURL *)trackUrl;
 
 @end

@@ -35,6 +35,8 @@
             abort();
         }
         
+        self.playbackManager = [[SPPlaybackManager alloc] initWithPlaybackSession:[SPSession sharedSession]];
+        
         [[SPSession sharedSession] setDelegate:self];
     }
     
@@ -66,6 +68,26 @@
         SDResponse *response = [SDResponse responseWithMessage:@"Logged out" success:YES];
         
         [[SDCommandResponseRecorder sharedCommandResponseRecorder] recordResponse:response forCommandString:@"logout"];
+    }];
+}
+
+
+- (void)playTrack:(NSURL *)trackUrl
+{
+    [[SPSession sharedSession] trackForURL:trackUrl callback:^(SPTrack *track) {
+        if (track != nil) {
+            [SPAsyncLoading waitUntilLoaded:track timeout:60.0 then:^(NSArray *loadedItems, NSArray *notLoadedItems) {
+                NSLog(@"loadedItems: %@", loadedItems);
+                NSLog(@"notLoadedItems: %@", notLoadedItems);
+                
+                [self.playbackManager playTrack:track callback:^(NSError *error) {
+                    NSLog(@"Error with playback: %@", error);
+                }];
+            }];
+        }
+        else {
+            // error
+        }
     }];
 }
 

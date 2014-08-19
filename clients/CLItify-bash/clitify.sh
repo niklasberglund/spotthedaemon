@@ -89,6 +89,10 @@ main()
 			clitify_status
 			exit 0
 			;;
+		play)
+			clitify_play "$2"
+			exit 0;
+			;;
 	    *)
 	        usage
 			exit 1
@@ -125,6 +129,13 @@ clitify_logout()
 clitify_status()
 {
 	sendcommand "status"
+}
+
+clitify_play()
+{
+	local track="$1"
+	
+	sendcommand "play" "$track"
 }
 
 # command as first argument, then n number of arguments

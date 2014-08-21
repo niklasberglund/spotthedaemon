@@ -49,8 +49,8 @@
     else if ([command.commandString isEqualToString:@"logout"]) {
         [self executeLogoutCommandFromSocket:socket commandObject:command];
     }
-    else if ([command.commandString isEqualToString:@"play"]) {
-        [self executePlayCommandFromSocket:socket command:command];
+    else if ([command.commandString isEqualToString:@"track"]) {
+        [self executeTrackCommandFromSocket:socket command:command];
     }
 }
 
@@ -138,6 +138,19 @@
     NSLog(@"'%@'", trackString);
     NSURL *trackUrl = [NSURL URLWithString:trackString];
     [[SDSpotifyPlayer sharedPlayer] playTrack:trackUrl];
+}
+
+
+- (void)executeTrackCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
+{
+    NSString *subcommand = [command.arguments objectAtIndex:0];
+    
+    if ([subcommand isEqualToString:@"play"]) {
+        NSString *trackString = [[command arguments] objectAtIndex:1];
+        NSLog(@"'%@'", trackString);
+        NSURL *trackUrl = [NSURL URLWithString:trackString];
+        [[SDSpotifyPlayer sharedPlayer] playTrack:trackUrl];
+    }
 }
 
 @end

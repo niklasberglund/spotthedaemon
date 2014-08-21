@@ -180,7 +180,7 @@
 
 
 #pragma mark -
-#pragma mark Socket functions
+#pragma mark Socket, data, command functions
 
 - (void)addActiveSocket:(GCDAsyncSocket *)socket
 {
@@ -234,7 +234,50 @@
 }
 
 
-#pragma mark -
+- (NSMutableData *)dataForSocket:(GCDAsyncSocket *)socket
+{
+    NSMutableData *data;
+    
+    for (NSMutableDictionary *socketDict in [self->activeSockets copy]) {
+        if ([socketDict objectForKey:@"socket"] == socket) {
+            return data;
+        }
+    }
+    
+    return nil;
+}
+
+
+- (NSMutableDictionary *)dictForCommand:(SDCommand *)command
+{
+    for (NSMutableDictionary *currentDict in [self->activeSockets copy]) {
+        NSArray *currentDictCommands = [currentDict objectForKey:@"commands"];
+        
+        for (SDCommand *currentCommand in currentDictCommands) {
+            if (currentCommand == command) {
+                return currentDict;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+
+- (NSMutableData *)dataForCommand:(SDCommand *)command
+{
+    for (NSMutableDictionary *currentDict in [self->activeSockets copy]) {
+        NSArray *currentDictCommands = [currentDict objectForKey:@"commands"];
+        
+        for (SDCommand *currentCommand in currentDictCommands) {
+            if (currentCommand == command) {
+                return (NSMutableData *)[currentDict objectForKey:@"data"];
+            }
+        }
+    }
+    
+    return nil;
+}
 
 
 @end

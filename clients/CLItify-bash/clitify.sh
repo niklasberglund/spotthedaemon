@@ -31,10 +31,12 @@ usage()
 	Bash client used for controlling SpotDaDaemon Spotify daemon.
 	
 	COMMANDS:
-	   login		Expects arguments <username> and <password>
+	   login		Expects arguments <username> and <password>(optional - prompted for keyboard input if left out)
+	   play			Play currently active track
+	   pause		Pause track
 	   logout		Log out current session
 	   status		Get current session status
-	   
+	   track		Control playback or get info about a track
 	OPTIONS:
 	   -v			Verbose output 
 	   --version		Display version information.
@@ -44,7 +46,7 @@ usage()
 	Examples:
 	   Log on and start playing a song
 	   $CLITIFY_EXECUTABLE_NAME login myusername mypassword
-	   $CLITIFY_EXECUTABLE_NAME play spotify:track:6vyStw2mr0Eq3izsBjJj4R
+	   $CLITIFY_EXECUTABLE_NAME track play spotify:track:6vyStw2mr0Eq3izsBjJj4R
 	   
 	EOF
 	

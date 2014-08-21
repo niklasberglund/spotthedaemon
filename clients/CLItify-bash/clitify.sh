@@ -113,6 +113,12 @@ clitify_login()
 	local username="$1"
 	local password="$2"
 	
+	if [ -z "$password" ]
+	then
+		echo "Enter password for $username:"
+		read password
+	fi
+	
 	if [ $CLITIFY_VERBOSE -eq 1 ]
 	then
 		echo "will send login command with following credentials"

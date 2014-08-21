@@ -90,7 +90,7 @@ main()
 			exit 0
 			;;
 		play)
-			clitify_play "$2"
+			clitify_play
 			exit 0
 			;;
 		track)
@@ -152,9 +152,7 @@ clitify_track()
 
 clitify_play()
 {
-	local track="$1"
-	
-	sendcommand "play" "$track"
+	sendcommand "play"
 }
 
 clitify_pause()

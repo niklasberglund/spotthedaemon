@@ -30,6 +30,7 @@
 		856093EF19A5B1AC0037B1E8 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093E319A5B1AC0037B1E8 /* DDContextFilterLogFormatter.m */; };
 		856093F019A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093E519A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m */; };
 		856093F119A5B1AC0037B1E8 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093E719A5B1AC0037B1E8 /* DDMultiFormatter.m */; };
+		8585D8C219A5BD1B00AB6AAC /* SDSpotDaDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
 		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
@@ -129,6 +130,8 @@
 		856093E519A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		856093E619A5B1AC0037B1E8 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		856093E719A5B1AC0037B1E8 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		8585D8C019A5BD1B00AB6AAC /* SDSpotDaDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSpotDaDaemon.h; sourceTree = "<group>"; };
+		8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpotDaDaemon.m; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				854FF4ED1984FB85008CAD25 /* categories */,
 				850E07FE199BE20100B74AB9 /* server */,
 				856093CC19A2896E0037B1E8 /* GUI */,
+				8585D8C019A5BD1B00AB6AAC /* SDSpotDaDaemon.h */,
+				8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */,
 				50EECAF115CAA82C006E54FA /* AppDelegate.h */,
 				50EECAF215CAA82C006E54FA /* AppDelegate.m */,
 				50EECAF415CAA82C006E54FA /* MainMenu.xib */,
@@ -430,6 +435,7 @@
 				856093F019A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m in Sources */,
 				8508F5191986BD2D00D67F65 /* SDCommandExecuter.m in Sources */,
 				85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */,
+				8585D8C219A5BD1B00AB6AAC /* SDSpotDaDaemon.m in Sources */,
 				850E07FA1994B84500B74AB9 /* SDCommandResponseRecorder.m in Sources */,
 				856093EF19A5B1AC0037B1E8 /* DDContextFilterLogFormatter.m in Sources */,
 				856093E919A5B1AC0037B1E8 /* DDAbstractDatabaseLogger.m in Sources */,

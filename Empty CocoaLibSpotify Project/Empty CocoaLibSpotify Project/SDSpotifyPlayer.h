@@ -20,5 +20,6 @@
 - (void)loginUser:(NSString *)username password:(NSString *)password;
 - (void)logout;
 - (void)playTrack:(NSURL *)trackUrl;
+- (void)pause;
 
 @end

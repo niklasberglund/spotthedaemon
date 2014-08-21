@@ -95,6 +95,12 @@
 }
 
 
+- (void)pause
+{
+    [SPSession sharedSession].playing = NO;
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

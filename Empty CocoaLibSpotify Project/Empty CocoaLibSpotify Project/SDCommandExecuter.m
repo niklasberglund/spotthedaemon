@@ -52,6 +52,9 @@
     else if ([command.commandString isEqualToString:@"track"]) {
         [self executeTrackCommandFromSocket:socket command:command];
     }
+    else if ([command.commandString isEqualToString:@"pause"]) {
+        [self executePauseCommandFromSocket:socket command:command];
+    }
 }
 
 
@@ -151,6 +154,12 @@
         NSURL *trackUrl = [NSURL URLWithString:trackString];
         [[SDSpotifyPlayer sharedPlayer] playTrack:trackUrl];
     }
+}
+
+
+- (void)executePauseCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
+{
+    [[SDSpotifyPlayer sharedPlayer] pause];
 }
 
 @end

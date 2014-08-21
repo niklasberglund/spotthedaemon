@@ -98,8 +98,6 @@
 {
     NSMutableData *socketData;
     
-    //[sock writeData:[@"TEST" dataUsingEncoding:NSUTF8StringEncoding] withTimeout:60.0 tag:0];
-    
     NSLog(@"looking for this socket's data");
     for (NSMutableDictionary *socketDict in [self->activeSockets copy]) {
         if ([socketDict objectForKey:@"socket"] == sock) {
@@ -130,10 +128,6 @@
         [self registerCommand:extractedCommand forSocket:sock];
         [self->commandExecuter executeCommand:extractedCommand fromSocket:sock];
     }
-    
-    NSLog(@"%@", commands);
-    NSLog(@"DATA: %@", [[NSString alloc] initWithData:socketData encoding:NSUTF8StringEncoding]);
-    
 }
 
 

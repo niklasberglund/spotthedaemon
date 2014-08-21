@@ -11,7 +11,9 @@
 
 @interface SDSpotifyPlayer : NSObject<SPSessionDelegate>
 
+@property (nonatomic, strong) SPSession *spotifySession; // for keeping the object alive, not accessing through this property
 @property (nonatomic, strong) SPPlaybackManager *playbackManager;
+
 
 + (SDSpotifyPlayer *)sharedPlayer;
 

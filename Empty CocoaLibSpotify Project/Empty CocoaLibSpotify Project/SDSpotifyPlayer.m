@@ -22,6 +22,8 @@
     self = [super init];
     
     if (self) {
+        self.spotifySession = [SPSession sharedSession];
+        
         NSString *userAgent = [[[NSBundle mainBundle] infoDictionary] valueForKey:(__bridge NSString *)kCFBundleIdentifierKey];
         NSData *appKey = [NSData dataWithBytes:&g_appkey length:g_appkey_size];
         
@@ -79,6 +81,7 @@
             [SPAsyncLoading waitUntilLoaded:track timeout:60.0 then:^(NSArray *loadedItems, NSArray *notLoadedItems) {
                 NSLog(@"loadedItems: %@", loadedItems);
                 NSLog(@"notLoadedItems: %@", notLoadedItems);
+                NSLog(@"isLoaded: %@", [track isLoaded] ? @"YES" : @"NO");
                 
                 [self.playbackManager playTrack:track callback:^(NSError *error) {
                     NSLog(@"Error with playback: %@", error);

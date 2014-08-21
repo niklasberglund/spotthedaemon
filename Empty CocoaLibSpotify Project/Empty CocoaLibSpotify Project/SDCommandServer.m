@@ -134,8 +134,6 @@
     NSLog(@"%@", commands);
     NSLog(@"DATA: %@", [[NSString alloc] initWithData:socketData encoding:NSUTF8StringEncoding]);
     
-    //[sock readDataWithTimeout:60.0 tag:123];
-    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:60.0 tag:0];
 }
 
 

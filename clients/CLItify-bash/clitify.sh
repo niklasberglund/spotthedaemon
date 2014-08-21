@@ -97,6 +97,10 @@ main()
 			clitify_track "$2" "$3"
 			exit 0
 			;;
+		pause)
+			clitify_pause
+			exit 0
+			;;
 	    *)
 	        usage
 			exit 1
@@ -151,6 +155,11 @@ clitify_play()
 	local track="$1"
 	
 	sendcommand "play" "$track"
+}
+
+clitify_pause()
+{
+	sendcommand "pause"
 }
 
 # command as first argument, then n number of arguments

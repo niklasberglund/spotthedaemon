@@ -21,5 +21,6 @@
 - (void)logout;
 - (void)playTrack:(NSURL *)trackUrl;
 - (void)pause;
+- (void)createPlaylistWithName:(NSString *)name callback:(void (^)(SPPlaylist *))block;
 
 @end

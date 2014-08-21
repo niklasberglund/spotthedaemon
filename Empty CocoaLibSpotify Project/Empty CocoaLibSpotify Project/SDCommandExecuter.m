@@ -52,6 +52,9 @@
     else if ([command.commandString isEqualToString:@"track"]) {
         [self executeTrackCommandFromSocket:socket command:command];
     }
+    else if ([command.commandString isEqualToString:@"playlist"]) {
+        [self executePlaylistCommandForSocket:socket command:command];
+    }
     else if ([command.commandString isEqualToString:@"play"]) {
         [self executePlayCommandFromSocket:socket command:command];
     }
@@ -153,6 +156,20 @@
         NSLog(@"'%@'", trackString);
         NSURL *trackUrl = [NSURL URLWithString:trackString];
         [[SDSpotifyPlayer sharedPlayer] playTrack:trackUrl];
+    }
+}
+
+
+- (void)executePlaylistCommandForSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
+{
+    NSString *subcommand = [command.arguments objectAtIndex:0];
+    
+    if ([subcommand isEqualToString:@"create"]) {
+        NSString *name = [command.arguments objectAtIndex:1];
+        
+        [[SDSpotifyPlayer sharedPlayer] createPlaylistWithName:name callback:^(SPPlaylist *playlist) {
+            NSLog(@"created playlist %@", playlist);
+        }];
     }
 }
 

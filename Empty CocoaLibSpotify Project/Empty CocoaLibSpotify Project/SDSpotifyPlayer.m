@@ -101,6 +101,18 @@
 }
 
 
+- (void)createPlaylistWithName:(NSString *)name callback:(void (^)(SPPlaylist *))block
+{
+    SPPlaylistContainer *playlistContainer = [[SPSession sharedSession] userPlaylists];
+    
+    [SPAsyncLoading waitUntilLoaded:playlistContainer timeout:60.0 then:^(NSArray *loadedItems, NSArray *notLoadedItems) {
+        [playlistContainer createPlaylistWithName:name callback:^(SPPlaylist *createdPlaylist) {
+            block(createdPlaylist);
+        }];
+    }];
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

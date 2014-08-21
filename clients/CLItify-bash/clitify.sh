@@ -91,7 +91,11 @@ main()
 			;;
 		play)
 			clitify_play "$2"
-			exit 0;
+			exit 0
+			;;
+		track)
+			clitify_track "$2" "$3"
+			exit 0
 			;;
 	    *)
 	        usage
@@ -129,6 +133,17 @@ clitify_logout()
 clitify_status()
 {
 	sendcommand "status"
+}
+
+clitify_track()
+{
+	local subcommand="$1"
+	local track="$2"
+	
+	if [ "$subcommand" == "play" ]
+	then
+		sendcommand "track" "play" "$track"
+	fi
 }
 
 clitify_play()

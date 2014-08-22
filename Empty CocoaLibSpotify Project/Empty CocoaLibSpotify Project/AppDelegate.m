@@ -70,7 +70,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 {
     // set up status item and it's menu
     self->statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    self->statusItem.title = @"S";
+    [self->statusItem setImage:[NSImage imageNamed:@"spotdadaemon-menuicon"]];
     self->statusItem.menu = self.statusMenu;
     self->statusItem.highlightMode = YES;
 }

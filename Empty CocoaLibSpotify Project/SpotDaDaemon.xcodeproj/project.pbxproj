@@ -31,6 +31,8 @@
 		856093F019A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093E519A5B1AC0037B1E8 /* DDDispatchQueueLogFormatter.m */; };
 		856093F119A5B1AC0037B1E8 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 856093E719A5B1AC0037B1E8 /* DDMultiFormatter.m */; };
 		8585D8C219A5BD1B00AB6AAC /* SDSpotDaDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */; };
+		8585D8C619A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */; };
+		8585D8C819A70BB100AB6AAC /* spotdadaemon-menuicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8585D8C719A70BB100AB6AAC /* spotdadaemon-menuicon.png */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
 		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
@@ -132,6 +134,8 @@
 		856093E719A5B1AC0037B1E8 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		8585D8C019A5BD1B00AB6AAC /* SDSpotDaDaemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSpotDaDaemon.h; sourceTree = "<group>"; };
 		8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpotDaDaemon.m; sourceTree = "<group>"; };
+		8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotdadaemon-menuicon@2x.png"; sourceTree = "<group>"; };
+		8585D8C719A70BB100AB6AAC /* spotdadaemon-menuicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotdadaemon-menuicon.png"; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		50EECAE515CAA82C006E54FA /* Empty CocoaLibSpotify Project */ = {
 			isa = PBXGroup;
 			children = (
+				8585D8C419A70BA300AB6AAC /* images */,
 				50EECAE615CAA82C006E54FA /* Supporting Files */,
 				85E25DF6197E773D0013FF67 /* lib */,
 				854FF4ED1984FB85008CAD25 /* categories */,
@@ -311,6 +316,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8585D8C419A70BA300AB6AAC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				8585D8C719A70BB100AB6AAC /* spotdadaemon-menuicon.png */,
+				8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		85E25DF6197E773D0013FF67 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +432,8 @@
 			files = (
 				50EECAEA15CAA82C006E54FA /* InfoPlist.strings in Resources */,
 				50EECAF015CAA82C006E54FA /* Credits.rtf in Resources */,
+				8585D8C819A70BB100AB6AAC /* spotdadaemon-menuicon.png in Resources */,
+				8585D8C619A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png in Resources */,
 				50EECAF615CAA82C006E54FA /* MainMenu.xib in Resources */,
 				856093CB19A2837F0037B1E8 /* SDSettingsWindowController.xib in Resources */,
 			);

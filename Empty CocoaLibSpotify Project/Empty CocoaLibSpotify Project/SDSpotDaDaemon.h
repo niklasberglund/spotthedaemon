@@ -11,4 +11,6 @@
 
 @interface SDSpotDaDaemon : NSObject
 
++ (BOOL)isSpotifyUri:(NSString *)string;
+
 @end

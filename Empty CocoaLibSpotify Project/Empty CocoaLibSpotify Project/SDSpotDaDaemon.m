@@ -10,6 +10,18 @@
 
 @implementation SDSpotDaDaemon
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
++ (BOOL)isSpotifyUri:(NSString *)string
+{
+    NSArray *separatedComponents = [string componentsSeparatedByString:@":"];
+    
+    if (separatedComponents.count == 3) {
+        if ([[separatedComponents firstObject] isEqualToString:@"spotify"]){
+            return YES;
+        }
+    }
+    else {
+        return NO;
+    }
+}
 
 @end

@@ -37,6 +37,7 @@ usage()
 	   logout		Log out current session
 	   status		Get current session status
 	   track		Control playback or get info about a track
+	   playlist		Control playback or create/get info about playlists
 	OPTIONS:
 	   -v			Verbose output 
 	   --version		Display version information.
@@ -99,6 +100,10 @@ main()
 			clitify_track "$2" "$3"
 			exit 0
 			;;
+		playlist)
+			clitify_playlist "$2" "$3"
+			exit 0
+			;;
 		pause)
 			clitify_pause
 			exit 0
@@ -155,6 +160,17 @@ clitify_track()
 	if [ "$subcommand" == "play" ]
 	then
 		sendcommand "track" "play" "$track"
+	fi
+}
+
+clitify_playlist()
+{
+	local subcommand="$1"
+	local track="$2"
+	
+	if [ "$subcommand" == "create" ]
+	then
+		sendcommand "playlist" "create" "$track"
 	fi
 }
 

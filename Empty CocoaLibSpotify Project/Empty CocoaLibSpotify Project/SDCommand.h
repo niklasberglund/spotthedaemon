@@ -22,5 +22,7 @@
 + (NSString *)endSeparator;
 + (NSString *)identifierSeparator;
 + (NSString *)argumentSeparator;
++ (NSArray *)recognizedCommands;
++ (BOOL)isCommand:(NSString *)string;
 
 @end

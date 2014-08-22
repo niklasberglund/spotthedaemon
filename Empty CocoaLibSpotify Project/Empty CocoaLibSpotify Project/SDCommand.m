@@ -83,10 +83,33 @@
 }
 
 
++ (NSArray *)recognizedCommands
+{
+    return @[
+        @"login",
+        @"logout",
+        @"play",
+        @"pause",
+        @"next",
+        @"previous",
+        @"status",
+        @"track",
+        @"playlist",
+        @"create"
+    ];
+}
+
+
++ (BOOL)isCommand:(NSString *)string
+{
+    return [[SDCommand recognizedCommands] containsObject:string];
+}
+
+
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p; identifier = %i;command = %@; arguments = %@>", [self class], self,
-            self.identifier, self.commandString, self.arguments];
+    return [NSString stringWithFormat:@"<%@: %p; identifier = %i;command = %@; arguments = %@; subcommands = %@; values = %@>", [self class], self,
+            self.identifier, self.commandString, self.arguments, self.subcommandStrings, self.values];
 }
 
 @end

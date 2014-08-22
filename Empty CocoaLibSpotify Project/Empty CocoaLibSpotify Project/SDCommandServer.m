@@ -272,4 +272,11 @@
 }
 
 
++ (void)writeResponse:(SDResponse *)response onSocket:(GCDAsyncSocket *)socket
+{
+    [socket writeData:[response json] withTimeout:60.0 tag:0];
+    [socket disconnectAfterWriting];
+}
+
+
 @end

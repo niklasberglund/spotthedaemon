@@ -11,6 +11,7 @@
 #import "SDCommand.h"
 #import "SDCommandExecuter.h"
 #import "SDCommandExecuterDelegate.h"
+#import "SDResponse.h"
 
 
 #define DEFAULT_PORT 4030
@@ -29,5 +30,7 @@
 
 - (id)initWithPort:(NSNumber *)port;
 - (void)start;
+
++ (void)writeResponse:(SDResponse *)response onSocket:(GCDAsyncSocket *)socket;
 
 @end

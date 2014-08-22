@@ -9,6 +9,7 @@
 #import "SDCommandExecuter.h"
 #import "SDSpotifyPlayer.h"
 #import "SDCommandResponseRecorder.h"
+#import "SDCommandServer.h"
 
 @implementation SDCommandExecuter
 
@@ -143,7 +144,21 @@
 
 - (void)executePlayCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
+    if ([[SDSpotifyPlayer sharedPlayer] isLoggedOn] == NO) {
+        SDResponse *response = [SDResponse responseWithMessage:@"Not logged on" success:NO];
+        [SDCommandServer writeResponse:response onSocket:socket];
+        return;
+    }
+    
+    if ([[SDSpotifyPlayer sharedPlayer] isPlaying] == YES) {
+        SDResponse *response = [SDResponse responseWithMessage:@"Already playing" success:NO];
+        [SDCommandServer writeResponse:response onSocket:socket];
+        return;
+    }
+    
     [SPSession sharedSession].playing = YES;
+    SDResponse *response = [SDResponse responseWithMessage:@"Playing" success:YES];
+    [SDCommandServer writeResponse:response onSocket:socket];
 }
 
 
@@ -176,7 +191,21 @@
 
 - (void)executePauseCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
+    if ([[SDSpotifyPlayer sharedPlayer] isLoggedOn] == NO) {
+        SDResponse *response = [SDResponse responseWithMessage:@"Not logged on" success:NO];
+        [SDCommandServer writeResponse:response onSocket:socket];
+        return;
+    }
+    
+    if ([[SDSpotifyPlayer sharedPlayer] isPlaying] == NO) {
+        SDResponse *response = [SDResponse responseWithMessage:@"Not playing anything" success:NO];
+        [SDCommandServer writeResponse:response onSocket:socket];
+        return;
+    }
+    
     [[SDSpotifyPlayer sharedPlayer] pause];
+    SDResponse *response = [SDResponse responseWithMessage:@"Paused playback" success:YES];
+    [SDCommandServer writeResponse:response onSocket:socket];
 }
 
 @end

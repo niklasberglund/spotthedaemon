@@ -55,14 +55,15 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-	// When quitting, you should logout and wait for logout completion before terminating.
-	/*if ([SPSession sharedSession].connectionState == SP_CONNECTION_STATE_LOGGED_OUT ||
+	// wait for logout completion before terminating
+	if ([SPSession sharedSession].connectionState == SP_CONNECTION_STATE_LOGGED_OUT ||
 		[SPSession sharedSession].connectionState == SP_CONNECTION_STATE_UNDEFINED)
 		return NSTerminateNow;
 
 	[[SPSession sharedSession] logout:^{
 		[[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
-	}];*/
+	}];
+    
 	return NSTerminateLater;
 }
 

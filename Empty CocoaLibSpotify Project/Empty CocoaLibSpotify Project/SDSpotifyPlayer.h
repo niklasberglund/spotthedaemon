@@ -23,4 +23,7 @@
 - (void)pause;
 - (void)createPlaylistWithName:(NSString *)name callback:(void (^)(SPPlaylist *))block;
 
+- (BOOL)isLoggedOn;
+- (BOOL)isPlaying;
+
 @end

@@ -113,6 +113,23 @@
 }
 
 
+- (BOOL)isLoggedOn
+{
+    if ([[SPSession sharedSession] user] == nil) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
+
+- (BOOL)isPlaying
+{
+    return [[SPSession sharedSession] isPlaying];
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

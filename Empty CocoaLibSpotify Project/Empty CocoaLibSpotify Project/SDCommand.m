@@ -7,6 +7,7 @@
 //
 
 #import "SDCommand.h"
+#import "SDSpotDaDaemon.h"
 
 @implementation SDCommand
 
@@ -50,14 +51,26 @@
         NSMutableArray *mutableCompontents = [components mutableCopy];
         [mutableCompontents removeObjectAtIndex:0];
         self.arguments = (NSArray *)mutableCompontents;
+        
+        NSMutableArray *valuesTemp = [[NSMutableArray alloc] init];
+        NSMutableArray *subcommandsTemp = [[NSMutableArray alloc] init];
+        
+        for (NSString *arg in self.arguments) {
+            if ([SDCommand isCommand:arg]) {
+                [subcommandsTemp addObject:arg];
+            }
+            else { // treat as value if it's not a command
+                [valuesTemp addObject:arg];
+            }
+        }
+        
+        self.values = (NSArray *)valuesTemp;
+        self.subcommandStrings = (NSArray *)subcommandsTemp;
     }
     
-    NSLog(@"%@", components);
     NSLog(@"%@", self);
-    
-    NSDictionary *dict = [[NSDictionary alloc] init];
-    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc] init];
 }
+
 
 + (NSString *)startSeparator
 {

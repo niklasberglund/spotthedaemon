@@ -13,6 +13,8 @@
 
 @property (nonatomic) int identifier;
 @property (nonatomic, strong) NSString *commandString;
+@property (nonatomic, strong) NSArray *subcommandStrings;
+@property (nonatomic, strong) NSArray *values;
 @property (nonatomic, strong) NSArray *arguments;
 
 - (id)initCommandFromString:(NSString *)rawCommandString;

@@ -37,7 +37,11 @@
             abort();
         }
         
-        self.playbackManager = [[SPPlaybackManager alloc] initWithPlaybackSession:[SPSession sharedSession]];
+        [SPAsyncLoading waitUntilLoaded:[SPSession sharedSession] timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *loadedItems, NSArray *notLoadedItems) {
+            self.playbackManager = [[SPPlaybackManager alloc] initWithPlaybackSession:[SPSession sharedSession]];
+            
+            NSLog(@"loaded SPSession");
+        }];
         
         [[SPSession sharedSession] setDelegate:self];
     }

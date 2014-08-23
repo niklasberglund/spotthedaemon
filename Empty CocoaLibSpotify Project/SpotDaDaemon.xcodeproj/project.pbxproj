@@ -33,6 +33,11 @@
 		8585D8C219A5BD1B00AB6AAC /* SDSpotDaDaemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */; };
 		8585D8C619A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */; };
 		8585D8C819A70BB100AB6AAC /* spotdadaemon-menuicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8585D8C719A70BB100AB6AAC /* spotdadaemon-menuicon.png */; };
+		8585D8CB19A7CA2E00AB6AAC /* SDPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8CA19A7CA2E00AB6AAC /* SDPlaylist.m */; };
+		8585D8D119A7CDD800AB6AAC /* SDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8D019A7CDD800AB6AAC /* SDUser.m */; };
+		8585D8D519A8AD2F00AB6AAC /* SDTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8D419A8AD2F00AB6AAC /* SDTrack.m */; };
+		8585D8D819A8ADC800AB6AAC /* SDAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8D719A8ADC800AB6AAC /* SDAlbum.m */; };
+		8585D8DB19A8AE6300AB6AAC /* SDArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8DA19A8AE6300AB6AAC /* SDArtist.m */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
 		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
@@ -136,6 +141,16 @@
 		8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpotDaDaemon.m; sourceTree = "<group>"; };
 		8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotdadaemon-menuicon@2x.png"; sourceTree = "<group>"; };
 		8585D8C719A70BB100AB6AAC /* spotdadaemon-menuicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotdadaemon-menuicon.png"; sourceTree = "<group>"; };
+		8585D8C919A7CA2E00AB6AAC /* SDPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPlaylist.h; sourceTree = "<group>"; };
+		8585D8CA19A7CA2E00AB6AAC /* SDPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPlaylist.m; sourceTree = "<group>"; };
+		8585D8CF19A7CDD800AB6AAC /* SDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUser.h; sourceTree = "<group>"; };
+		8585D8D019A7CDD800AB6AAC /* SDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUser.m; sourceTree = "<group>"; };
+		8585D8D319A8AD2F00AB6AAC /* SDTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTrack.h; sourceTree = "<group>"; };
+		8585D8D419A8AD2F00AB6AAC /* SDTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTrack.m; sourceTree = "<group>"; };
+		8585D8D619A8ADC800AB6AAC /* SDAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAlbum.h; sourceTree = "<group>"; };
+		8585D8D719A8ADC800AB6AAC /* SDAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAlbum.m; sourceTree = "<group>"; };
+		8585D8D919A8AE6300AB6AAC /* SDArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDArtist.h; sourceTree = "<group>"; };
+		8585D8DA19A8AE6300AB6AAC /* SDArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDArtist.m; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -209,6 +224,7 @@
 				854FF4ED1984FB85008CAD25 /* categories */,
 				850E07FE199BE20100B74AB9 /* server */,
 				856093CC19A2896E0037B1E8 /* GUI */,
+				8585D8D219A8A8FD00AB6AAC /* models */,
 				8585D8C019A5BD1B00AB6AAC /* SDSpotDaDaemon.h */,
 				8585D8C119A5BD1B00AB6AAC /* SDSpotDaDaemon.m */,
 				50EECAF115CAA82C006E54FA /* AppDelegate.h */,
@@ -323,6 +339,23 @@
 				8585D8C519A70BAC00AB6AAC /* spotdadaemon-menuicon@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		8585D8D219A8A8FD00AB6AAC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8585D8C919A7CA2E00AB6AAC /* SDPlaylist.h */,
+				8585D8CA19A7CA2E00AB6AAC /* SDPlaylist.m */,
+				8585D8D319A8AD2F00AB6AAC /* SDTrack.h */,
+				8585D8D419A8AD2F00AB6AAC /* SDTrack.m */,
+				8585D8CF19A7CDD800AB6AAC /* SDUser.h */,
+				8585D8D019A7CDD800AB6AAC /* SDUser.m */,
+				8585D8D619A8ADC800AB6AAC /* SDAlbum.h */,
+				8585D8D719A8ADC800AB6AAC /* SDAlbum.m */,
+				8585D8D919A8AE6300AB6AAC /* SDArtist.h */,
+				8585D8DA19A8AE6300AB6AAC /* SDArtist.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		85E25DF6197E773D0013FF67 /* lib */ = {
@@ -452,6 +485,7 @@
 				8508F5191986BD2D00D67F65 /* SDCommandExecuter.m in Sources */,
 				85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */,
 				8585D8C219A5BD1B00AB6AAC /* SDSpotDaDaemon.m in Sources */,
+				8585D8D819A8ADC800AB6AAC /* SDAlbum.m in Sources */,
 				850E07FA1994B84500B74AB9 /* SDCommandResponseRecorder.m in Sources */,
 				856093EF19A5B1AC0037B1E8 /* DDContextFilterLogFormatter.m in Sources */,
 				856093E919A5B1AC0037B1E8 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -460,8 +494,12 @@
 				854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */,
 				856093E819A5B1AC0037B1E8 /* CLIColor.m in Sources */,
 				85E25E03197FE93B0013FF67 /* SDCommand.m in Sources */,
+				8585D8DB19A8AE6300AB6AAC /* SDArtist.m in Sources */,
+				8585D8D119A7CDD800AB6AAC /* SDUser.m in Sources */,
 				856093EA19A5B1AC0037B1E8 /* DDASLLogCapture.m in Sources */,
 				856093EC19A5B1AC0037B1E8 /* DDFileLogger.m in Sources */,
+				8585D8CB19A7CA2E00AB6AAC /* SDPlaylist.m in Sources */,
+				8585D8D519A8AD2F00AB6AAC /* SDTrack.m in Sources */,
 				850E07FD199A39FC00B74AB9 /* SDResponse.m in Sources */,
 				85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */,
 				856093EE19A5B1AC0037B1E8 /* DDTTYLogger.m in Sources */,

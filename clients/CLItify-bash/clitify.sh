@@ -109,7 +109,7 @@ main()
 			exit 0
 			;;
 		user)
-			clitify_user
+			clitify_user "$2"
 			exit 0;
 			;;
 	    *)
@@ -190,7 +190,7 @@ clitify_pause()
 
 clitify_user()
 {
-	local subcommand="$2"
+	local subcommand="$1"
 	sendcommand "user" "$subcommand"
 }
 

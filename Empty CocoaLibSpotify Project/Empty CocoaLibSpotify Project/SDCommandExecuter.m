@@ -7,9 +7,12 @@
 //
 
 #import "SDCommandExecuter.h"
+#import "SDSpotDaDaemon.h"
 #import "SDSpotifyPlayer.h"
 #import "SDCommandResponseRecorder.h"
 #import "SDCommandServer.h"
+
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 @implementation SDCommandExecuter
 
@@ -41,29 +44,14 @@
     
     NSLog(@"Executing command %@", command);
     
-    if ([command.commandString isEqualToString:@"login"]) {
-        [self executeLoginCommandFromSocket:socket command:command];
+    NSString *selectorString = [NSString stringWithFormat:@"execute%@CommandFromSocket:command:", [command.commandString capitalizedString]];
+    
+    SEL executeCommandSelector = NSSelectorFromString(selectorString);
+    if ([self respondsToSelector:executeCommandSelector]) {
+        [self performSelector:executeCommandSelector withObject:socket withObject:command];
     }
-    else if ([command.commandString isEqualToString:@"status"]) {
-        [self executeStatusCommandFromSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"logout"]) {
-        [self executeLogoutCommandFromSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"track"]) {
-        [self executeTrackCommandFromSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"playlist"]) {
-        [self executePlaylistCommandForSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"play"]) {
-        [self executePlayCommandFromSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"pause"]) {
-        [self executePauseCommandFromSocket:socket command:command];
-    }
-    else if ([command.commandString isEqualToString:@"user"]) {
-        [self executeUserCommandFromSocket:socket command:command];
+    else {
+        DDLogError(@"No such command for selector %@", selectorString);
     }
 }
 
@@ -210,6 +198,7 @@
     SDResponse *response = [SDResponse responseWithMessage:@"Paused playback" success:YES];
     [SDCommandServer writeResponse:response onSocket:socket];
 }
+
 
 - (void)executeUserCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {

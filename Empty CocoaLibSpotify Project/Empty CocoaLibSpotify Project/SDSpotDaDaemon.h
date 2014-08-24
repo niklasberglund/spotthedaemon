@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CocoaLumberjack.h"
 
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface SDSpotDaDaemon : NSObject
 
 + (BOOL)isSpotifyUri:(NSString *)string;

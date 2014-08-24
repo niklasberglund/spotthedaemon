@@ -39,8 +39,6 @@
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
 #import "CocoaLumberjack.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {

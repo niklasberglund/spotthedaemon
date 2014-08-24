@@ -202,8 +202,29 @@
 
 - (void)executeUserCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
-    SDUser *currentUser = [[SDSpotifyPlayer sharedPlayer] currentUser];
-    NSLog(@"%@", currentUser);
+    if (command.arguments.count == 0) {
+        SDUser *currentUser = [[SDSpotifyPlayer sharedPlayer] currentUser];
+        
+        [SPAsyncLoading waitUntilLoaded:currentUser timeout:kSPAsyncLoadingDefaultTimeout then:^(NSArray *loadedItems, NSArray *notLoadedItems) {
+            if ([loadedItems containsObject:currentUser]) { // success
+                NSDictionary *dataDict = @{
+                                           @"display_name" : currentUser.name,
+                                           @"username" : currentUser.userName
+                                           };
+                
+                SDResponse *response = [SDResponse responseWithMessage:@"Current user info" success:YES data:dataDict];
+                [SDCommandServer writeResponse:response onSocket:socket];
+            }
+            else { // fail
+                SDResponse *response = [SDResponse responseWithMessage:@"Failed to load user info" success:NO];
+                [SDCommandServer writeResponse:response onSocket:socket];
+            }
+        }];
+        NSLog(@"%@", currentUser);
+    }
+    else {
+        
+    }
 }
 
 @end

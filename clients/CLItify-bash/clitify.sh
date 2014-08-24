@@ -36,6 +36,7 @@ usage()
 	   pause		Pause track
 	   logout		Log out current session
 	   status		Get current session status
+	   user			Access user information
 	   track		Control playback or get info about a track
 	   playlist		Control playback or create/get info about playlists
 	OPTIONS:

@@ -108,6 +108,10 @@ main()
 			clitify_pause
 			exit 0
 			;;
+		user)
+			clitify_user
+			exit 0;
+			;;
 	    *)
 	        usage
 			exit 1
@@ -182,6 +186,12 @@ clitify_play()
 clitify_pause()
 {
 	sendcommand "pause"
+}
+
+clitify_user()
+{
+	local subcommand="$2"
+	sendcommand "user" "$subcommand"
 }
 
 # command as first argument, then n number of arguments

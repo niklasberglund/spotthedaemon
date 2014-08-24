@@ -42,13 +42,13 @@
     NSLog(@"Executing command %@", command);
     
     if ([command.commandString isEqualToString:@"login"]) {
-        [self executeLoginCommandFromSocket:socket commandObject:command];
+        [self executeLoginCommandFromSocket:socket command:command];
     }
     else if ([command.commandString isEqualToString:@"status"]) {
-        [self executeStatusCommandFromSocket:socket];
+        [self executeStatusCommandFromSocket:socket command:command];
     }
     else if ([command.commandString isEqualToString:@"logout"]) {
-        [self executeLogoutCommandFromSocket:socket commandObject:command];
+        [self executeLogoutCommandFromSocket:socket command:command];
     }
     else if ([command.commandString isEqualToString:@"track"]) {
         [self executeTrackCommandFromSocket:socket command:command];
@@ -62,6 +62,9 @@
     else if ([command.commandString isEqualToString:@"pause"]) {
         [self executePauseCommandFromSocket:socket command:command];
     }
+    else if ([command.commandString isEqualToString:@"user"]) {
+        [self executeUserCommandFromSocket:socket command:command];
+    }
 }
 
 
@@ -71,7 +74,7 @@
 }
 
 
-- (void)executeLoginCommandFromSocket:(GCDAsyncSocket *)socket commandObject:(SDCommand *)command
+- (void)executeLoginCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
@@ -89,7 +92,7 @@
 }
 
 
-- (void)executeLogoutCommandFromSocket:(GCDAsyncSocket *)socket commandObject:(SDCommand *)command
+- (void)executeLogoutCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] registerCommand:command];
     [[SDCommandResponseRecorder sharedCommandResponseRecorder] onResponseForCommand:command callBlock:^(NSData *response) {
@@ -101,7 +104,7 @@
 }
 
 
-- (void)executeStatusCommandFromSocket:(GCDAsyncSocket *)socket
+- (void)executeStatusCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
 {
     NSMutableDictionary *responseDataDict = [[NSMutableDictionary alloc] init];
     
@@ -206,6 +209,12 @@
     [[SDSpotifyPlayer sharedPlayer] pause];
     SDResponse *response = [SDResponse responseWithMessage:@"Paused playback" success:YES];
     [SDCommandServer writeResponse:response onSocket:socket];
+}
+
+- (void)executeUserCommandFromSocket:(GCDAsyncSocket *)socket command:(SDCommand *)command
+{
+    SDUser *currentUser = [[SDSpotifyPlayer sharedPlayer] currentUser];
+    NSLog(@"%@", currentUser);
 }
 
 @end

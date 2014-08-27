@@ -134,6 +134,13 @@
 }
 
 
+- (SDUser *)currentUser
+{
+    SPUser *spUser = [[SPSession sharedSession] user];
+    return [[SDUser alloc] initWithObject:spUser];
+}
+
+
 #pragma mark -
 #pragma mark SPSessionDelegate Methods
 

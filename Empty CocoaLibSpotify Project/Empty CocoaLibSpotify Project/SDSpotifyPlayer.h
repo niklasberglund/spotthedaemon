@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
+#import "SDUser.h"
 
 @interface SDSpotifyPlayer : NSObject<SPSessionDelegate>
 
@@ -25,5 +26,6 @@
 
 - (BOOL)isLoggedOn;
 - (BOOL)isPlaying;
+- (SDUser *)currentUser;
 
 @end

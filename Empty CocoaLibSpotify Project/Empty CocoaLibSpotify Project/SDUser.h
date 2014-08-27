@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
 
-@interface SDUser : NSObject
+@interface SDUser : NSObject<SPAsyncLoading>
 {
     SPUser *clsUser; // CocoaLibSpotify user object
 }
 
-- (NSString *)name;
-- (NSString *)userName;
-- (NSString *)spotifyURI;
-- (BOOL)isLoaded;
+@property (readonly, nonatomic, getter = isLoaded) BOOL loaded;
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *spotifyUri;
+
+- (id)initWithObject:(SPUser *)userObject;
 
 @end

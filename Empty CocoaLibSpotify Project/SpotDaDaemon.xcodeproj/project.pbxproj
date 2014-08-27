@@ -38,6 +38,7 @@
 		8585D8D519A8AD2F00AB6AAC /* SDTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8D419A8AD2F00AB6AAC /* SDTrack.m */; };
 		8585D8D819A8ADC800AB6AAC /* SDAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8D719A8ADC800AB6AAC /* SDAlbum.m */; };
 		8585D8DB19A8AE6300AB6AAC /* SDArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8DA19A8AE6300AB6AAC /* SDArtist.m */; };
+		8585D8DE19A9EA7600AB6AAC /* NSObject+description.m in Sources */ = {isa = PBXBuildFile; fileRef = 8585D8DD19A9EA7600AB6AAC /* NSObject+description.m */; };
 		85E25DF5197E76D80013FF67 /* SDCommandServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF4197E76D80013FF67 /* SDCommandServer.m */; };
 		85E25DFC197E77630013FF67 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DF9197E77630013FF67 /* GCDAsyncSocket.m */; };
 		85E25DFD197E77630013FF67 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E25DFB197E77630013FF67 /* GCDAsyncUdpSocket.m */; };
@@ -151,6 +152,8 @@
 		8585D8D719A8ADC800AB6AAC /* SDAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAlbum.m; sourceTree = "<group>"; };
 		8585D8D919A8AE6300AB6AAC /* SDArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDArtist.h; sourceTree = "<group>"; };
 		8585D8DA19A8AE6300AB6AAC /* SDArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDArtist.m; sourceTree = "<group>"; };
+		8585D8DC19A9EA7600AB6AAC /* NSObject+description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+description.h"; sourceTree = "<group>"; };
+		8585D8DD19A9EA7600AB6AAC /* NSObject+description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+description.m"; sourceTree = "<group>"; };
 		85E25DF3197E76D80013FF67 /* SDCommandServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommandServer.h; sourceTree = "<group>"; };
 		85E25DF4197E76D80013FF67 /* SDCommandServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommandServer.m; sourceTree = "<group>"; };
 		85E25DF8197E77630013FF67 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -218,9 +221,9 @@
 		50EECAE515CAA82C006E54FA /* Empty CocoaLibSpotify Project */ = {
 			isa = PBXGroup;
 			children = (
+				85E25DF6197E773D0013FF67 /* lib */,
 				8585D8C419A70BA300AB6AAC /* images */,
 				50EECAE615CAA82C006E54FA /* Supporting Files */,
-				85E25DF6197E773D0013FF67 /* lib */,
 				854FF4ED1984FB85008CAD25 /* categories */,
 				850E07FE199BE20100B74AB9 /* server */,
 				856093CC19A2896E0037B1E8 /* GUI */,
@@ -271,6 +274,8 @@
 			children = (
 				854FF4E91984FACD008CAD25 /* NSDictionary+jsonString.h */,
 				854FF4EA1984FACD008CAD25 /* NSDictionary+jsonString.m */,
+				8585D8DC19A9EA7600AB6AAC /* NSObject+description.h */,
+				8585D8DD19A9EA7600AB6AAC /* NSObject+description.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				850E07F719937FF100B74AB9 /* SDSpotifyPlayer.m in Sources */,
 				854FF4EB1984FACD008CAD25 /* NSDictionary+jsonString.m in Sources */,
 				856093E819A5B1AC0037B1E8 /* CLIColor.m in Sources */,
+				8585D8DE19A9EA7600AB6AAC /* NSObject+description.m in Sources */,
 				85E25E03197FE93B0013FF67 /* SDCommand.m in Sources */,
 				8585D8DB19A8AE6300AB6AAC /* SDArtist.m in Sources */,
 				8585D8D119A7CDD800AB6AAC /* SDUser.m in Sources */,
@@ -602,9 +608,18 @@
 				FRAMEWORK_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)/CocoaLibSpotify.framework/Versions/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Empty CocoaLibSpotify Project/SpotDaDaemon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Empty CocoaLibSpotify Project/SpotDaDaemon-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = SpotDaDaemon;
+				USER_HEADER_SEARCH_PATHS = "lib/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -616,9 +631,18 @@
 				FRAMEWORK_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)/CocoaLibSpotify.framework/Versions/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Empty CocoaLibSpotify Project/SpotDaDaemon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Empty CocoaLibSpotify Project/SpotDaDaemon-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = SpotDaDaemon;
+				USER_HEADER_SEARCH_PATHS = "lib/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

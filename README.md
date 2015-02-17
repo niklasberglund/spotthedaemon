@@ -1,4 +1,4 @@
-spotdadaemon
+SpotTheDaemon
 ============
 OS X Spotify daemon with a clear text loopback TCP interface.
 
